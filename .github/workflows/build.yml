@@ -21,5 +21,5 @@ jobs:
       - run: git rm -r --cached .
       - run: git add build/
       - run: git commit -m "create gh_pages branch"
-      - run: git push origin --delete gh_pages
+      - run: git push origin --delete gh_pages || echo "Remote branch not found, continuing..."
       - run: git push origin tmp:gh_pages    
