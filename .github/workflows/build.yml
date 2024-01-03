@@ -25,4 +25,6 @@ jobs:
       - run: mv build docs
       - run: git add docs/
       - run: git commit -m "update gh_pages branch"
-      - run: git push origin tmp:gh_pages    
+      - run: git fetch origin gh_pages
+      - run: git rebase origin/gh_pages tmp
+      - run: git push origin tmp:gh_pages --force
