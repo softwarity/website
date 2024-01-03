@@ -14,20 +14,16 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '20'
-      - run: git checkout -b tmp
       - run: npm install
       - run: npm run build
       - run: git config user.name "$GITHUB_ACTOR"
       - run: git config user.email ""
+      - run: git checkout -b tmp
       - run: rm -f .gitignore
       - run: rm -rf docs
       - run: git rm -r --cached .
       - run: mv build docs
       - run: git add docs/
-      - run: git commit -m "update gh_pages branch"
-      - run: git fetch origin gh_pages
-      - run: git checkout gh_pages
-      - run: git pull origin gh_pages
-      - run: git checkout tmp
-      - run: git rebase gh_pages
-      - run: git push origin tmp:gh_pages --force
+      - run: git commit -m "create gh_pages branch"
+      - run: git push origin --delete gh_pages || echo "Remote branch not found, continuing..."
+      - run: git push origin tmp:gh_pages
