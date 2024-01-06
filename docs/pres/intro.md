@@ -5,7 +5,7 @@ authors: fachache
 tags: []
 ---
 
-ARCHWAY est née du constat que la plupart des projets basés sur une architecture microservice avait les même besoins.
+ARCHWAY est née du constat que la plupart des projets basés sur une architecture microservice avaient les mêmes besoins.
 Au sein des entreprises souvent les équipes par méconnaissance, par insatisfaction des `API Gateway` existantes ou simplement par choix, préferent développer leur propre solution.
 
 Souvent cette solution s'appelle `PORTAL` ou quelque chose évoquant cela. Si vous vous reconnaissez dans ce cas, vous êtes au bon endroit.
