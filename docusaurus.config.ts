@@ -3,12 +3,12 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'Archway',
-  tagline: 'Oubliez les API Gateway, concentrez-vous sur votre métier',
+  title: 'ARCHWAY',
+  tagline: 'Concentrez-vous sur ce qui compte',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://www.hhdev.fr',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -16,7 +16,7 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'hhdevelopment', // Usually your GitHub org/user name.
-  projectName: 'archway', // Usually your repo name.
+  projectName: 'website', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -45,28 +45,24 @@ const config: Config = {
       },
     },
   },
-
   presets: [
     [
       'classic',
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/hhdevelopment/archway/tree/main/packages/docs',
+          editUrl: 'https://github.com/hhdevelopment/website/tree/main',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/hhdevelopment/archway/tree/main/packages/blog',
-        },
+        // blog: {
+        //   showReadingTime: true,
+        //   editUrl: 'https://github.com/hhdevelopment/website/tree/main',
+        // },
         theme: {
           customCss: './src/css/custom.css',
         },
       } satisfies Preset.Options,
     ],
   ],
-
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
@@ -83,19 +79,31 @@ const config: Config = {
         },
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'presSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Présentation',
         },
+        {
+          type: 'docSidebar',
+          sidebarId: 'docuSidebar',
+          position: 'left',
+          label: 'Documentation',
+        },
+        // {
+        //   type: 'docSidebar',
+        //   sidebarId: 'documentationSidebar',
+        //   position: 'left',
+        //   label: 'Documentation',
+        // },
         // {
         //   type: 'docSidebar',
         //   sidebarId: 'tutorialSidebar',
         //   position: 'left',
         //   label: 'API',
         // },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        // {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/hhdevelopment/website',
           label: 'GitHub',
           position: 'right',
         },
