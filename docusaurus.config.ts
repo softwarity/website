@@ -52,7 +52,9 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/hhdevelopment/website/tree/main',
+          routeBasePath: '/'
         },
+        blog: false,
         // blog: {
         //   showReadingTime: true,
         //   editUrl: 'https://github.com/hhdevelopment/website/tree/main',
@@ -117,10 +119,10 @@ const config: Config = {
           items: [
             {
               label: 'Présentation',
-              to: '/docs/pres/intro',
+              to: '/pres/intro',
             },{
               label: 'Documentation',
-              to: '/docs/doc/start',
+              to: '/doc/start',
             },
           ],
         },
@@ -140,10 +142,10 @@ const config: Config = {
         {
           title: 'More',
           items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
+            // {
+            //   label: 'Blog',
+            //   to: '/blog',
+            // },
             {
               label: 'GitHub',
               href: 'https://github.com/hhdevelopment/archway',
