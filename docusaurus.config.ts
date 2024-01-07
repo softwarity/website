@@ -70,7 +70,7 @@ const config: Config = {
       title: 'Archway',
       logo: {
         alt: 'Archway Logo',
-        src: 'img/logo.svg',
+        src: 'img/archway.png',
       },
       items: [
         {
@@ -116,8 +116,11 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Présentation',
+              to: '/docs/pres/intro',
+            },{
+              label: 'Documentation',
+              to: '/docs/doc/start',
             },
           ],
         },
