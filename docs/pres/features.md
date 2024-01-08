@@ -23,14 +23,17 @@ C'est le minimum...
 
 Il rajoute en plus un mécanisme simple pour sécuriser ces dernières.
 
+Tout ceci peut se faire directement à partir de l'interface utilisateur ou à partir de fichiers de configuraitons.
+
 ### Gestion des utilisateurs
 
 `ARCHWAY` permet de gérer les utilisateurs des applications et services derriere l'`APP Gateway`.
 
 Entre autre: 
- - Information utilisateur
+
+ - Informations utilisateur
  - Gestion de la politique des mots de passe (complexité, echecs, changement)
- - blocage
+ - Blocage
  - Gestion des plages de dates et horaires autorisées.
 
 ### Authentification et autorisation
@@ -39,33 +42,22 @@ Entre autre:
 
 Ceci vous permettra d'utiliser facilement les rôles pour sécuriser vos routes, services et endpoints.
 
- - Gestion en base
- - Connexion à un serveur LDAP
+En quelques points: 
+
+ - Gestion des utilisateurs en base
+ - Prise en charge de LDAP
  - Changement de mot de passe à date
+ - Répudiation des utilisateurs
  - Authentification à deux facteurs
-
-### Profils
-
-Pour faciliter la gestion des utilisateurs une abstraction appelé profil permet de regrouper les rôles.
-
-Plusieurs rôles peuvent être asosciés à un profil et plusieurs profils peuvent être associés à un utilisateur.
-
-Pour faire simple on imagine qu'un profil d'adminstrateur aura bien plus de rôles qu'un exploitant de l'application.
-
-### Groupes
-
-ARCHWAY propose aussi une notion de groupes. Ceux ci ne sont pas à confondre avec les profils. 
-
-Les profils définissent les actions de que vous pouvez faire alors que les groupes permettrait de réduire la porté des éléments impactés par ces actions.
-
-Par exemple imaginons une application gérant des stocks dans plusieurs pays. On peut aisément imaginer que modifier les stocks nécessite un rôle particulier `ROLE_UPDATE_ITEM`. Mais vous ne voulez pas que le gestionnaire du pays `A` modifi le stock du pays `B`. Aussi les deux gestionnaires auront peut être les même rôles, mais pas les même groupes. ã vous bien sûrt de récuperer cette information dans les informations utilisateur et de limiter les actions en fonciton des informations stockés dans les groupes.
+ - Notion de profils et groupes
 
 ### Locales
 
 Comme nous allons le voir plus loin `ARCHWAY` transmet dans les requête `HTTP` les informations de l'utilisateur connecté.
+
 `ARCHWAY` positionne aussi la langue préféré de l'utilisateur. 
 
-`ARCHWAY` permet de gérer ces langues et via des services `REST` d'interargir avec.
+il vous permet de gérer les langues et via des services `REST` d'interargir avec.
 
 ### Coffre-fort
 
