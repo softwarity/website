@@ -9,10 +9,14 @@ import styles from './index.module.css';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
+  const Logo = require('@site/static/img/logo.svg').default
   return (
     <header className={clsx('hero hero--dark', styles.heroBanner)}>
       <div className="container">
-        <Heading as="h1" className="hero__title">{siteConfig.title}</Heading>
+        <div className={clsx('row',styles.logoRow)}>
+          <Logo role="img" className={styles.logo}/>
+          <Heading as="h1" className="hero__title">{siteConfig.title}</Heading>
+        </div>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link className="button button--primary button--lg" to="/intro">ARCHWAY Tutorial - 5min ⏱️</Link>

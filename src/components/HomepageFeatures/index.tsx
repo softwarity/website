@@ -43,6 +43,32 @@ const FeatureList: FeatureItem[] = [
       </>
     ),
   },
+  {
+    title: 'Gestion avancée des routes',
+    Item: require('@site/static/img/toll.png').default,
+    // Item: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    type: 'img',
+    description: (
+      <>
+        <li>Gestion des routes, sécurisation, création des prédicats, des filtres via l'interface graphique.</li>
+        <li>Gestion des alternatives de routes.</li>
+        <li>Rechargement dynamique sans redémarrage.</li>
+      </>
+    ),
+  },
+  {
+    title: 'Securisez vos applications sans effort',
+    Item: require('@site/static/img/gate-with-monks.png').default,
+    // Item: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    type: 'img',
+    description: (
+      <>
+        <li>Gestion des droits RBAC. Prise en charge de LDAP.</li>
+        <li>Gestion des politiques d'accès des mots de passe, des jours ouvrables et des heures ouvrables.</li>
+        <li>Authentification 2 facteurs via TOTP.</li>
+      </>
+    ),
+  },
 ];
 
 function Feature({title, Item, type, description}: FeatureItem) {
@@ -67,7 +93,7 @@ export default function HomepageFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className="container">
-        <div className="row">
+        <div className={clsx('row',styles.featuresRow)}>
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}

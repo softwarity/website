@@ -21,3 +21,13 @@
   align-items: center;
   justify-content: center;
 }
+.logo{
+  width: 96px;
+  height: 96px;
+}
+
+.logoRow {
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
