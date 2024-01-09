@@ -17,6 +17,7 @@ Aussi il propose la plupart des fonctionnalités fournit par ce dernier.
 
 C'est le minimum...
 
+ - Création de routes
  - Définission des conditions de la route (Prédicats)
  - Modification des requêtes (Filtres)
  - Modification des reponses (Filtres)

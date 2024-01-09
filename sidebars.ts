@@ -12,7 +12,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Concepts',
-      items: ['pres/concepts/intro', 'pres/concepts/access-control', 'pres/concepts/locales', 'pres/concepts/users-infos', 'pres/concepts/gateway'],
+      items: ['pres/concepts/gateway', 'pres/concepts/access-control', 'pres/concepts/locales', 'pres/concepts/users-infos'],
     },
     'pres/design'
   ],
