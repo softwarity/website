@@ -7,7 +7,9 @@ tags: []
 
 Nous allons ici essayer de presenter rapidement les fonctionnalités prise en charge par ARCHWAY. 
 
-À noter que toutes ces fonctionnalitées sont accessibles via l'interface utilisateur
+:::note
+Toutes ces fonctionnalitées sont accessibles via l'interface utilisateur
+:::
 
 ### Gestion des routes
 
@@ -36,6 +38,7 @@ Entre autre:
  - Gestion de la politique des mots de passe (complexité, echecs, changement)
  - Blocage
  - Gestion des plages de dates et horaires autorisées.
+ - Restriction sur la méthode de connexion (Form ou Jwt). Ainsi que les IPs ou DNS. 
 
 ### Authentification et autorisation
 

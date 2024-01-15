@@ -16,6 +16,11 @@ const sidebars: SidebarsConfig = {
     },
     'pres/design'
   ],
+  tutoSidebar: [
+    'tuto/install',
+    'tuto/routes',
+    'tuto/security',
+  ],
   docuSidebar: [
     'doc/start',
     {

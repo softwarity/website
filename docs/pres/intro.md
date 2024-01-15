@@ -6,23 +6,27 @@ tags: []
 ---
 
 ARCHWAY est née du constat que la plupart des projets basés sur une architecture microservice avaient les mêmes besoins.
-Au sein des entreprises souvent les équipes par méconnaissance, par insatisfaction des `API Gateway` existantes ou simplement par choix, préferent développer leur propre solution.
+Au sein des entreprises souvent les équipes, par méconnaissance, par insatisfaction des `API Gateway` existantes ou simplement par choix, préferent développer leur propre solution.
 
-Souvent cette solution s'appelle `PORTAL` ou quelque chose évoquant cela. Si vous vous reconnaissez dans ce cas, vous êtes au bon endroit.
+Souvent cette solution s'appelle `PORTAL`, `GATE` ou quelque chose comme cela. Si vous vous reconnaissez dans ce cas, vous êtes au bon endroit.
+
+En général une solution à façon permet de contrôler plus facilement un certain nombre de points comme la gestion des utilisateurs.
 
 ## ARCHWAY
 
+:::info
 Archway est une `Application gateway` une sorte de super `API Gateway`.
+:::
 
 Pour faire cours, si vous savez ce qu'est une `API Gateway`, vous allez très vite comprendre ce qu'est une `APP Gateway`.
 
-Surtout `ARCHWAY` propose une interface utilisateur complète permettant de contrôler toutes ses fonctionnalités
+Surtout `ARCHWAY` propose une interface utilisateur complète permettant de contrôler toutes ses fonctionnalités.
 
 ### API Gateway
 
-Une `API Gateway` est un service qui gère le routage des requêtes issues d'une application basée sur une architecture microservice et plus particulièrement dans un `cluster`.
+Une `API Gateway` est un service qui gère principalement le routage des requêtes issues d'une application basée sur une architecture microservice et plus particulièrement dans un `cluster`.
 
-Dans une architecture microservice l'application n'est plus construite sur **un** `client` et **un** server, mais plutôt un `client` (voir plusieurs) et de multiple microservices.
+Dans une architecture microservice l'application n'est plus construite sur **un** `client` et **un** server, mais plutôt **un** `client` **(voir plusieurs)** et de **multiple** microservices.
 
 ### Architecture microservices
 
@@ -41,7 +45,17 @@ Ces derniers doivent être adressés de sorte d'être joignables facilement par 
 
 Probléme dans un `cluster` (swarm ou k8s), on ne sait pas ou sont les services. Il ne serait pas raisonnable d'exposer tous les services sur des ports différents.
 
-Si vous exposiez tous les services sur des ports differents, cela voudrait dire que votre `client` devrait requêter ces derniers via une `URL` absolut (le port n'est pas inclut dans une requête relative). 
+Si vous exposiez tous les services sur des ports differents, cela voudrait dire que votre `client` devrait requêter ces derniers via une `URL` absolue (le port n'est pas inclut dans une requête relative). 
+
+```bash
+# absolute request (to never do)
+GET http://host:port/path1/path2?param1=value1&param2=value2
+# relative request from root
+GET /path1/path2?param1=value1&param2=value2
+# relative request from path of current path (to avoid)
+GET path2?param1=value1&param2=value2
+```
+
 Ce qui n'est pas envisageable. Imaginez que vous deviez livrer chaque `client` avec des `urls` differentes et gérer tous les services avec des ports distincts. Cela deviendrait très rapidement ingérable. 
 
 Heureusement, les `clusters` ont leut propre gestionnaire de `DNS`, l'`ingress`. Dans le `cluster` chaque microservice est identifié par un nom fixe. 

@@ -17,7 +17,7 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
         <b>Archway</b> a été conçu pour être facilement installé et
-        utilisé pour construire votre application rapidement.
+        utilisé pour construire vos applications rapidement.
       </>
     ),
   },

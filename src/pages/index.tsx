@@ -9,7 +9,7 @@ import styles from './index.module.css';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
-  const Logo = require('@site/static/img/logo.svg').default
+  const Logo = require('@site/static/img/archway.svg').default
   return (
     <header className={clsx('hero hero--dark', styles.heroBanner)}>
       <div className="container">
@@ -19,7 +19,7 @@ function HomepageHeader() {
         </div>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
-          <Link className="button button--primary button--lg" to="/intro">ARCHWAY Tutorial - 5min ⏱️</Link>
+          <Link className="button button--primary button--lg" to="/tuto/install">ARCHWAY Tutoriel - 5min ⏱️</Link>
         </div>
       </div>
     </header>

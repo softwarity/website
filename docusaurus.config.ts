@@ -8,7 +8,7 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://www.hhdev.fr',
+  url: 'https://archway.softwarity.dev',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -69,10 +69,10 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/social-card.jpg',
     navbar: {
-      title: 'Archway',
+      title: 'SOFTWARITY',
       logo: {
-        alt: 'Archway Logo',
-        src: 'img/logo.svg',
+        alt: 'Softwarity Logo',
+        src: 'img/softwarity.svg',
       },
       items: [
         {
@@ -84,6 +84,12 @@ const config: Config = {
           sidebarId: 'presSidebar',
           position: 'left',
           label: 'Présentation',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'tutoSidebar',
+          position: 'left',
+          label: 'Tutoriel',
         },
         {
           type: 'docSidebar',
@@ -135,7 +141,7 @@ const config: Config = {
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/archway_hhdev',
+              href: 'https://twitter.com/archway',
             },
           ],
         },
@@ -153,13 +159,18 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} ARCHWAY, HHDEV Inc. Built with Love.`,
+      copyright: `Copyright © ${new Date().getFullYear()}, Softwarity Inc. Built with Love.`,
     },
     prism: {
       theme: prismThemes.github,
+      additionalLanguages: ['bash'],
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
 };
 
 export default config;

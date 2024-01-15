@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  archway:
+    image: ghcr.io/hhdevelopment/archway:latest
+    ports:
+      - 8282:8080 # non HTTPS
+    environment:
+      MONGODB_HOST: mongodb 
+      MONGODB_DB_NAME: archway
+      MONGODB_USER: admin
+      MONGODB_PWD: changeit
+
+  mongodb:
+    image: mongo # official image  
+    environment:
+      MONGO_INITDB_DATABASE: archway
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: changeit
