@@ -13,7 +13,9 @@ Toutes ces fonctionnalitées sont accessibles via l'interface utilisateur
 
 ### Gestion des routes
 
+:::info
 `ARCHWAY` est basé sur [Spring Cloud Gateway](https://spring.io/projects/spring-cloud-gateway/).
+:::
 
 Aussi il propose la plupart des fonctionnalités fournit par ce dernier.
 

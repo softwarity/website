@@ -4,26 +4,25 @@ title: Premiers pas
 authors: fachache
 tags: []
 ---
+
 ## Installation
 
-Installer `ARCHWAY` est trés facile, l'application `ARCHWAY` nécessite 2 images `docker`. L'image de `ARCHWAY` et l'image de mongodb.
+Installer `ARCHWAY` est trés facile, l'application `ARCHWAY` nécessite 2 images `docker`. L'image de `ARCHWAY` et l'image de `mongodb`.
 
 :::tip
-Noté que la base mongo peut être clusterisé (dans swarm ou k8s), mais surtout peut être utilisé par vos microservices pour stocker vos documents. 
+Noté que la base de données `mongodb` peut être clusterisée (dans swarm ou k8s), mais surtout peut être utilisé par vos microservices pour stocker vos documents. 
 :::
 
 :::warning
-En revanche il est déconseillé d'accéder et surtout de modifier les documents de `STOCKAPI` via vos services. C'est ce que l'on appelle la gouvernance de la donnée. 
+En revanche il est déconseillé d'accéder et surtout de modifier les documents de `ARCHWAY` via vos services internes. C'est ce que l'on appelle la gouvernance de la donnée. 
 :::
 
-La plus simple facon d'installer `ARCHWAY` est de le déployer dans un cluster. Mais vous pouvez bien sur l'installer comme simple container `docker` via `docker-compose`. 
+La meilleur facon d'installer `ARCHWAY` est de le déployer au sein d'un cluster. Mais vous pouvez bien sur l'installer comme simple container `docker` via `docker-compose`. 
 
 ### Lancement via `docker-compose`
 
-#### Déclaration du `docker-compose.yml`
-
 <details>
-  <summary>`docker-compose.yml` pour compose</summary>
+  <summary>`docker-compose.yml`</summary>
 ```yml title="docker-compose.yml"
 version: '3.8'
 services:
@@ -49,13 +48,19 @@ services:
 Ce `docker-compose` est la version minimal requise.
 
 :::tip
-Notez que les données de mongodb ne sont pas persistées dans cette exemple.   
+Notez que les données de mongodb ne sont pas persistées dans cet exemple.   
 Un [volume](https://docs.docker.com/storage/volumes/) est donc à monter dans le container de l'image `mongodb` dans le répertoire `/data/db`, si vous utilisez l'image officiel de `mongo`.
+:::
+
+:::tip
+Notez que en absence de certificat, le HTTPs n'est pas actif par defaut.
+Voir Activer le `HTTPS`
 :::
 
 #### Démarrage du projet
 
 ```bash
+docker compose -f docker-compose.yml pull
 docker compose -f docker-compose.yml up -d
 ```
 

@@ -5,7 +5,9 @@ authors: fachache
 tags: []
 ---
 
+:::info
 `ARCHWAY` est construit sur des technologies éprouvées.
+:::
 
 ## `Back-end`
 

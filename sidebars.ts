@@ -18,11 +18,19 @@ const sidebars: SidebarsConfig = {
   ],
   tutoSidebar: [
     'tuto/install',
-    'tuto/routes',
+    'tuto/route',
     'tuto/security',
+    'tuto/route-predicate',
+    'tuto/route-filter',
+    'tuto/route-test',
   ],
   docuSidebar: [
     'doc/start',
+    {
+      type: 'category',
+      label: 'Configuration',
+      items: ['doc/conf/files', 'doc/conf/https'],
+    },
     {
       type: 'category',
       label: 'Interface utilisateur',
