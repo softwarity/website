@@ -22,7 +22,7 @@ jobs:
       - run: rm -f .gitignore
       - run: rm -rf docs
       - run: git rm -r --cached .
-      # - run: echo "www.softwarity.io" > build/CNAME
+      - run: echo "softwarity.io" > build/CNAME
       - run: mv build docs
       - run: git add docs/
       - run: git commit -m "Update gh_pages branch"
