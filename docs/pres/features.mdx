@@ -76,7 +76,14 @@ il vous permet de gérer les langues et via des services `REST` d'interargir ave
 
 #### Notifications Push
 
-`ARCHWAY` permet de notifier l'intégralité des clients (si ceux ci ont activé la fonctionnalité) via le mécanisme de notification push [Push API](https://www.w3.org/TR/push-api/#introduction). Ce mécanisme ne fonctionne que si `ARCHWAY` et ses clients sont connectés à internet.
+`ARCHWAY` permet de notifier l'intégralité des clients (si ceux ci ont activé la fonctionnalité) via le mécanisme de `Notification Push` [Push API](https://www.w3.org/TR/push-api/#introduction). Ce mécanisme ne fonctionne que si `ARCHWAY` et ses clients sont connectés à internet.
+
+:::info
+La fonctionnalité de `Notification Push` nécéssite 3 conditions
+ - `ARCHWAY` et les clients doivent être connectés à internet.
+ - `ARCHWAY` doit être exposé en `HTTPS`.
+ - Et bien sûr la fonctionnalité doit être activée.
+:::
 
 #### Mails (Serveur `SMTP`)
 
@@ -88,12 +95,21 @@ Par exemple si un serveur `SMTP` est configuré lors de la création d'un utilis
 
 `ARCHWAY` propose un coffre-fort comme le propose `AshiCorp Vault` mais en plus simple.
 
-Le coffre-fort gére des secrets qui sont cryptés en base et des valeurs en claires.
+:::info
+Le coffre-fort gére 2 types d'éléments
+ - des secrets qui sont cryptés en base avec une clé symétrique.
+ - et des valeurs en claires.
+:::
 
 Vous pouvez ajouter une date de péremption aux éléments cryptés pour être informé de la nécessité de les mettre à jour. 
 
 De plus les élements chiffrés ne sont jamais affichés dans l'interface, ce qui permet d'éviter certaines déconvenues.
 
-Les éléments stockés dans le coffre-fort peuvent être utilisé dans differents endroits identifiés par cette icone : ![vault](/img/vault.svg)
+export const VaultLogo = require('@site/static/img/vault.svg').default
+
+:::note
+Les éléments stockés dans le coffre-fort peuvent être utilisé dans differents endroits identifiés par cette icone :
+<VaultLogo width="100px" height="100px"></VaultLogo>
+:::
 
 
