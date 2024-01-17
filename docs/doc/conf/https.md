@@ -9,10 +9,12 @@ Dans cette section nous allons voir comment configurer `ARCHWAY` pour que le ser
 
 `ARCHWAY` utilise un fichier `.p12` pour importer les certificats et clés nécessaires.
 
+:::note
 Un fichier `.p12` est un format de fichier binaire utilisé pour stocker le certificat du serveur, ainsi que toute la chaîne de certificats et la clé privée dans un seul fichier encrypté. Il est également connu sous le nom de fichier PKCS#12, qui est un standard pour le stockage de clés privées et de certificats.
+:::
 
 
-## Avec certificats et clés autogénérés
+## Certificats autogénérés
 
 Nous allons commencer avec un fichier `.p12` autogénéré pour `localhost`.    
 Ce dernier pourra être utilisé localement sur le poste du développeur par exemple.
@@ -46,7 +48,9 @@ The local CA is now installed in the Firefox and/or Chrome/Chromium trust store 
 The local CA is now installed in Java's trust store! 👍
 ```
 
-### Creation du `.p12` pour `localhost`
+### Creation du `.p12`
+
+Nous allons créer un magasin contenant les certificats et clé pour `localhost`.
 
 ```bash
 $ mkcert -p12-file server-keystore.p12 -pkcs12 localhost
@@ -63,10 +67,10 @@ The legacy PKCS#12 encryption password is the often hardcoded default "changeit"
 It will expire on 17 April 2026 🗓
 ```
 
-## Avec des certificats fournis par votre registraire.
+## Certificats fournis
 
 :::tip
-Si vous avez un fichier `.p12` pour votre domaine, apssez à la section suivante.
+Si vous avez un fichier `.p12` pour votre domaine, passez à la section suivante.
 :::
 
 Si votre registraire vous fournit un certificat et une clé privée, utilisez la procédure suivante pour créer le fichier `.p12`.
@@ -81,22 +85,22 @@ Si votre registraire vous fournit pour votre domaine `mydomain.com` une clé pri
 # mydomain.com_ssl_certificate.cer
 ```
 
-À partir de ces fichier générez le fichier `.p12`.
+À partir de ces fichiers générez le fichier `server-keystore.p12`.
 
 ```bash
 openssl pkcs12 -export -out server-keystore.p12 -inkey mydomain.com_private_key.key -in mydomain.com_ssl_certificate.cer
 # create password
 ```
 
-Display info
+### Afficher les infos
 
 ```bash
 keytool -list -keystore server-keystore.p12 -storetype PKCS12 -v
 ```
 
-## Utilisation du certificat `.p12`
+## Utilisation du `.p12`
 
-Pour ajouter le certificat à `ARCHWAY` et ainsi activer, le `https` et le `http/2`, nous allons modifier le `docker-compose.yml` utilisé dans le tutoriel pour ajouter le montage d'un volume dans l'image `archway`.
+Pour ajouter le certificat à `ARCHWAY` et ainsi activer, le `https` et le `http/2`, nous allons modifier le `docker-compose.yml` utilisé dans le tutoriel pour ajouter le montage du magasin `.p12` dans l'image `archway`.
 
 <details>
   <summary>`docker-compose.yml`</summary>
@@ -110,13 +114,13 @@ services:
       - 443:8443 # HTTPS
     volumes:
       # highlight-next-line
-      - ./config:/config:ro
+      - ./server-keystore.p12:/server-keystore.p12:ro
     environment:
       # highlight-start
       SERVER_PORT: 8443
       SSL: "true"
       SSL_KEY_STORE_TYPE: PKCS12
-      SSL_KEY_STORE: config/server-keystore.p12
+      SSL_KEY_STORE: server-keystore.p12
       SSL_KEY_STORE_PASSWORD: changeit
       SSL_KEY_ALIAS: 1
       # highlight-end
@@ -142,14 +146,12 @@ volumes:
 ### Explications
 
 ```yml
-./config:/config:ro
+./server-keystore.p12:/server-keystore.p12:ro
 ```
 
-La ligne `./config:/config:ro` définit que l'on va monter le répertoire local `config` dans le conteneur et ce dans le répertoire `config`.
+La ligne `./server-keystore.p12:/server-keystore.p12:ro` définit que l'on va monter le magasin `.p12` à la racine du conteneur. On précise que c'est en lecture seule `ro`.
 
-Dans notre cas, le répertoire `config` et le fichier `docker-compose.yml` doivent être au même niveau.
-
-Dans le repertoire local `config`, copiez le fichier `server-keystore.p12`.
+Dans notre cas, le fichier `server-keystore.p12` et le fichier `docker-compose.yml` doivent être au même niveau.
 
 Adaptez au besoin le mot de passe bien sûr.
 
@@ -159,17 +161,19 @@ Adaptez au besoin le mot de passe bien sûr.
 
 Ceci expose le port `8443` du conteneur sur le port local `443`.
 
+Si le port 443 n'est pas libre vous povez en utiliser un autre.
+
 ```yml
 SERVER_PORT: 8443
 SSL: "true"
 SSL_KEY_STORE_TYPE: PKCS12
-SSL_KEY_STORE: config/server-keystore.p12
+SSL_KEY_STORE: server-keystore.p12
 SSL_KEY_STORE_PASSWORD: changeit
 SSL_KEY_ALIAS: 1
 ```
 
 - `SERVER_PORT` définit le port d'écoute du serveur.
-- `SSL` active ou pas le `SSL`, le `HTTPS`.
+- `SSL` active le `SSL`, le `HTTPS`.
 - `SSL_KEY_STORE_TYPE` Type du magasin, normalement `PKCS12`.
 - `SSL_KEY_STORE` Le magasin au format `.p12` que l'on a monté.
 - `SSL_KEY_STORE_PASSWORD` Le mot de passe de la clé privée.
@@ -189,7 +193,7 @@ docker compose -f docker-compose.yml pull
 docker compose -f docker-compose.yml up -d
 ```
 
-Connexion: [https://localhost:8443/login](https://localhost:8443/login)
+Connexion: [https://localhost:443/login](https://localhost:443/login)
 
 :::note
 le lien précédent utilise `localhost`, il faut bien sur adater cela avec le `DNS` lié au certificat utilisé.

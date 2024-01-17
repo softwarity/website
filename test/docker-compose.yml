@@ -7,14 +7,14 @@ services:
       - 8443:8443 # HTTPS
     volumes:
       # highlight-next-line
-      - ./config:/config:ro
+      - ./server-keystore.p12:/server-keystore.p12:ro
     environment:
       # highlight-start
       SERVER_PORT: 8443
       SSL: "true"
       SSL_KEY_ALIAS: 1
       SSL_KEY_STORE_PASSWORD: changeit
-      SSL_KEY_STORE: config/server-keystore.p12
+      SSL_KEY_STORE: server-keystore.p12
       SSL_KEY_STORE_TYPE: PKCS12
       # highlight-end
       MONGODB_HOST: mongodb 
