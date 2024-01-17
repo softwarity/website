@@ -57,6 +57,13 @@ En quelques points:
  - Authentification à deux facteurs
  - Notion de profils et groupes
 
+### Connexions
+
+`ARCHWAY` permet de se connecter de 2 manières:
+
+ - Via le formulaire de connexion
+ - Via un mécanisme `JWT`
+
 ### Locales
 
 Comme nous allons le voir plus loin `ARCHWAY` transmet dans les requête `HTTP` les informations de l'utilisateur connecté.
@@ -64,6 +71,18 @@ Comme nous allons le voir plus loin `ARCHWAY` transmet dans les requête `HTTP` 
 `ARCHWAY` positionne aussi la langue préféré de l'utilisateur. 
 
 il vous permet de gérer les langues et via des services `REST` d'interargir avec.
+
+### Communication clients
+
+#### Notifications Push
+
+`ARCHWAY` permet de notifier l'intégralité des clients (si ceux ci ont activé la fonctionnalité) via le mécanisme de notification push [Push API](https://www.w3.org/TR/push-api/#introduction). Ce mécanisme ne fonctionne que si `ARCHWAY` et ses clients sont connectés à internet.
+
+#### Mails (Serveur `SMTP`)
+
+`ARCHWAY` propose aussi de configurer un serveur `SMTP`. Ce serveur permettra de modifier le `workflow` de gestion des utilisateurs.
+
+Par exemple si un serveur `SMTP` est configuré lors de la création d'un utilisateur. L'administrateur n'aura pas à saisir le mot de passe de cet utilisateur. Un mail d'activation conteant un mot de passe temporaire et aléatoire sera directement envoyé à l'utilisateur concerné.
 
 ### Coffre-fort
 

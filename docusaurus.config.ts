@@ -141,7 +141,7 @@ const config: Config = {
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/archway',
+              href: 'https://twitter.com/softwarity',
             },
           ],
         },

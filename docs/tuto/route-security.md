@@ -11,7 +11,7 @@ En plus d'un filtre de requêtes permettant de transmettre des informations lié
 
 :::tip
 3 niveaux de sécurisation
-  - Seuls les utilisateurs authentifiés peut accéder à la route.
+  - Seuls les utilisateurs authentifiés peuvent accéder à la route.
   - Seuls les utilisateurs listés peuvent accéder à la route
   - Seuls les utilisateurs possédant au moins un des rôles listés peuvent accéder à la route
 :::

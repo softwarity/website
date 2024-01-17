@@ -19,7 +19,7 @@ const sidebars: SidebarsConfig = {
   tutoSidebar: [
     'tuto/install',
     'tuto/route',
-    'tuto/security',
+    'tuto/route-security',
     'tuto/route-predicate',
     'tuto/route-filter',
     'tuto/route-test',
