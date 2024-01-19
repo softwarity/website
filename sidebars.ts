@@ -22,6 +22,7 @@ const sidebars: SidebarsConfig = {
     'tuto/route-security',
     'tuto/route-predicate',
     'tuto/route-filter',
+    'tuto/route-created',
     'tuto/route-test',
   ],
   docuSidebar: [

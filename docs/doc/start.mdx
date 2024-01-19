@@ -10,16 +10,16 @@ tags: []
 Installer `ARCHWAY` est trés facile, l'application `ARCHWAY` nécessite 2 images `docker`. L'image de `ARCHWAY` et l'image de `mongodb`.
 
 :::tip
-Noté que la base de données `mongodb` peut être clusterisée (dans swarm ou k8s), mais surtout peut être utilisé par vos microservices pour stocker vos documents. 
+Notez que la base de données `mongodb` peut être clusterisée (dans swarm ou k8s), mais surtout peut être utilisée par vos microservices pour stocker vos documents. 
 :::
 
 :::warning
 En revanche il est déconseillé d'accéder et surtout de modifier les documents de `ARCHWAY` via vos services internes. C'est ce que l'on appelle la gouvernance de la donnée. 
 :::
 
-La meilleur facon d'installer `ARCHWAY` est de le déployer au sein d'un cluster. Mais vous pouvez bien sur l'installer comme simple container `docker` via `docker-compose`. 
+La meilleur facon d'installer `ARCHWAY` est de le déployer au sein d'un cluster. Mais vous pouvez bien sur l'installer comme simple container `docker` via `docker-compose`.
 
-### Lancement via `docker-compose`
+### Fichier `docker-compose.yml`
 
 <details>
   <summary>`docker-compose.yml`</summary>
@@ -35,6 +35,8 @@ services:
       MONGODB_DB_NAME: archway
       MONGODB_USER: admin
       MONGODB_PWD: changeit
+    networks:
+      - net
 
   mongodb:
     image: mongo # official image  
@@ -42,76 +44,49 @@ services:
       MONGO_INITDB_DATABASE: archway
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: changeit
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - net
+
+volumes:
+  mongodb_data:
+
+networks:
+  net:
 ```
 </details>
 
-Ce `docker-compose` est la version minimal requise.
-
 :::tip
-Notez que les données de mongodb ne sont pas persistées dans cet exemple.   
-Un [volume](https://docs.docker.com/storage/volumes/) est donc à monter dans le container de l'image `mongodb` dans le répertoire `/data/db`, si vous utilisez l'image officiel de `mongo`.
+Notez que le volume mongodb_data n'a pas de destination précisée et sera donc géré par docker. 
+Voir [volume](https://docs.docker.com/storage/volumes/) pour plus de détails.
 :::
 
 :::tip
-Notez que en absence de certificat, le HTTPs n'est pas actif par defaut.
-Voir Activer le `HTTPS`
+Notez qu'en absence de certificat, le HTTPs n'est pas actif par defaut.   
+[Voir Activer le `HTTPS`](conf/https)
 :::
 
-#### Démarrage du projet
+### `docker-compose`
 
 ```bash
 docker compose -f docker-compose.yml pull
 docker compose -f docker-compose.yml up -d
 ```
 
-### Installation dans un `cluster` `Swarm`
+### `cluster` `Swarm`
 
 Dans cette exemple, nous allons lancer `ARCHWAY` dans une stack `myapp`.
-
-Nous donc nommer la base `archway` et persister les données sur le système de fichier via un volume nommé `mongodb_data`.
-
-<details>
-  <summary>`docker-compose.yml` pour swarm</summary>
-```yml title="docker-compose.yml"
-version: '3.8'
-
-services:
-  archway:
-    image: ghcr.io/hhdevelopment/archway:latest
-    ports:
-      - 8080:8080
-    environment:
-      MONGODB_HOST: mongodb
-      MONGODB_DB_NAME: archway
-      MONGODB_USER: admin
-      MONGODB_PWD: changeit
-    networks:
-      - dnet
-
-  mongodb:
-    image: mongo
-    environment:
-      MONGO_INITDB_DATABASE: archway
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: changeit
-    ports:
-      - 27017:27017
-    volumes:
-      - mongodb_data:/data/db
-    networks:
-      - dnet
-volumes:
-  mongodb_data:
-networks:
-  dnet:
-```
-</details>
 
 ```bash
 docker stack deploy -c docker-compose.yml myapp
 ```
 
-### Installation dans un `cluster` `Kubernetes`
+### `cluster` `Kubernetes`
+
+Pour déployer `ARCHWAY` dans un cluster kube, il convient d'utiliser d'autre fichiers de déploiement. 
+
+
 
 ## Configuration
 

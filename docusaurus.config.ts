@@ -148,25 +148,25 @@ const config: Config = {
             },
           ],
         },
-        {
-          title: 'More',
-          items: [
-            // {
-            //   label: 'Blog',
-            //   to: '/blog',
-            // },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/hhdevelopment/archway',
-            },
-          ],
-        },
+        // {
+        //   title: 'More',
+        //   items: [
+        //     // {
+        //     //   label: 'Blog',
+        //     //   to: '/blog',
+        //     // },
+        //     {
+        //       label: 'GitHub',
+        //       href: 'https://github.com/hhdevelopment/archway',
+        //     },
+        //   ],
+        // },
       ],
       copyright: `Copyright © ${new Date().getFullYear()}, Softwarity Inc. Built with Love.`,
     },
     prism: {
       theme: prismThemes.github,
-      additionalLanguages: ['bash'],
+      additionalLanguages: ['bash', 'json'],
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
