@@ -108,7 +108,7 @@ Pour ajouter le certificat à `ARCHWAY` et ainsi activer, le `https` et le `http
 version: '3.8'
 services:
   archway:
-    image: ghcr.io/hhdevelopment/archway:latest
+    image: ghcr.io/softwarity/archway:latest
     ports:
       # highlight-next-line
       - 443:8443 # HTTPS

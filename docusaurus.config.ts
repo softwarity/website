@@ -15,7 +15,7 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'hhdevelopment', // Usually your GitHub org/user name.
+  organizationName: 'softwarity', // Usually your GitHub org/user name.
   projectName: 'website', // Usually your repo name.
 
   onBrokenLinks: 'throw',
@@ -51,13 +51,13 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/hhdevelopment/website/tree/main',
+          editUrl: 'https://github.com/softwarity/website/tree/main',
           routeBasePath: '/'
         },
         blog: false,
         // blog: {
         //   showReadingTime: true,
-        //   editUrl: 'https://github.com/hhdevelopment/website/tree/main',
+        //   editUrl: 'https://github.com/softwarity/website/tree/main',
         // },
         theme: {
           customCss: './src/css/custom.css',
@@ -114,7 +114,7 @@ const config: Config = {
         // },
         // {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/hhdevelopment/website',
+          href: 'https://github.com/softwarity/website',
           label: 'GitHub',
           position: 'right',
         },
@@ -157,7 +157,7 @@ const config: Config = {
         //     // },
         //     {
         //       label: 'GitHub',
-        //       href: 'https://github.com/hhdevelopment/archway',
+        //       href: 'https://github.com/softwarity/archway',
         //     },
         //   ],
         // },
