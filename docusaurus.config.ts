@@ -1,14 +1,14 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-
+const isDev = process.env.NODE_ENV === 'development';
 const config: Config = {
   title: 'ARCHWAY',
   tagline: 'Concentrez-vous sur ce qui compte',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://archway.softwarity.dev',
+  url: 'https://softwarity.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -100,6 +100,10 @@ const config: Config = {
           position: 'left',
           label: 'Documentation',
         },
+        {to: '/showcase', label: 'Galerie'},
+        // {to: '/licensing', label: 'Licenses'},
+        {to: 'https://demo.softwarity.dev/login', label: 'Demo (guest/guest)'},
+        isDev && {to: '/__docusaurus/debug', label: 'Debug'}
         // {
         //   type: 'docSidebar',
         //   sidebarId: 'documentationSidebar',
@@ -113,11 +117,11 @@ const config: Config = {
         //   label: 'API',
         // },
         // {to: '/blog', label: 'Blog', position: 'left'},
-        {
-          href: 'https://github.com/softwarity/website',
-          label: 'GitHub',
-          position: 'right',
-        },
+        // {
+        //   href: 'https://github.com/softwarity/website',
+        //   label: 'GitHub',
+        //   position: 'right',
+        // },
       ],
     },
     footer: {
