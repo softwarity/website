@@ -103,7 +103,7 @@ const config: Config = {
         {to: '/showcase', label: 'Galerie'},
         // {to: '/licensing', label: 'Licenses'},
         {to: 'https://demo.softwarity.dev/login', label: 'Demo (guest/guest)'},
-        isDev && {to: '/__docusaurus/debug', label: 'Debug'}
+        // isDev && {to: '/__docusaurus/debug', label: 'Debug'},
         // {
         //   type: 'docSidebar',
         //   sidebarId: 'documentationSidebar',
