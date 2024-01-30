@@ -73,7 +73,7 @@ Par exemple imaginons une application gérant des documents avec des niveaux d'a
 
 On pourrait créer des groupes, images de ces niveaux d'accréditations.
 
-Les groupes possédés par l'utilisateur courant pouront être transmis aux microservices via des entêtes `HTTP` ou via un ticket `JWT`.
+Les groupes possédés par l'utilisateur courant pourront être transmis aux microservices via des entêtes `HTTP` ou via un ticket `JWT`.
 
 En charge du microservice d'intégrer les groupes ainsi transmis dans les APIs exposés.
 

@@ -48,7 +48,29 @@ Ce sont par exemple les filtres de modifications de status.
 La plupart du temps vous parametrerez un prédicat de type `path` et un filtre de requête `stripPrefix`.
 :::
 
-### Cas pratique
+## Securité
+
+La sécurité est une composante importante de `ARCHWAY`.
+
+3 type d'exigences peuvent être définit
+
+ - L'authentification est exigée
+ - La nécessité de posseder un rôle (authentification implicite)
+ - L'accés est réservé seulement à certain utilisateurs (authentification implicite)
+
+Ces exigences peuvent être définit à 2 niveaux
+
+### Sécurité de la `route`
+
+Les 3 exigences peuvent être définit au niveau de la route.
+
+Ceci peut être définit directement lors de la création de la route
+
+### Sécurité des `endpoints`
+
+Si la route expose un enpoint permettant de récuperer les specifications `open-api`, `ARCHWAY` permet de définir pour chaque endpoint les exigences de sécurité.
+
+## Cas pratique
 
 Par exemple, considérons le microservice `foo-service` qui ecoute sur le port 3000.
 
@@ -69,3 +91,4 @@ Ainsi l'`API Gateway` routera le requête `/foo/v1/item` vers `http://foo-servic
  - via des entêtes `HTTP`
  - via un token `JWT`
 :::
+
