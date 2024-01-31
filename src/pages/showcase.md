@@ -41,13 +41,15 @@ tags: []
 ## Gateway
 ### Routes management
 ![Routes](showcase/gateway-routes.png) 
-#### Edit route general 
+### Edit route general 
 ![Edit route 1](showcase/gateway-routes-edit-general.png) 
-#### Edit route security
+### Edit route security
 ![Edit route 2](showcase/gateway-routes-edit-security.png) 
-#### Edit route predicates
+### Edit route predicates
 ![Edit route 3](showcase/gateway-routes-edit-predicates.png) 
-#### Edit route filters
+### Edit route filters
 ![Edit route 4](showcase/gateway-routes-edit-filters.png) 
+### Edit endpoints security
+![Edit route 2](showcase/gateway-endpoints-edit-security.png)
 ### Vaults management
 ![Alt text](showcase/gateway-vault.png) 
