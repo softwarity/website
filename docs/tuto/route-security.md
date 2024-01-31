@@ -19,3 +19,12 @@ En plus d'un filtre de requêtes permettant de transmettre des informations lié
 Pour `httpbin` nous voulons que seuls les utilisateurs authentifiés peuvent y accéder.
 
 ![connection](img/create-route-security.png)
+
+## Sécurisation des endpoints
+
+:::info
+Dans le cas où la route expose un fichier de specification `open-api`, vous pouvez définir la sécurité au niveau des `endpoints`.
+:::
+
+![connection](img/edit-endpoints-security.png)
+
