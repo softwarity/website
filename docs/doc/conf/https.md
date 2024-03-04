@@ -172,7 +172,7 @@ SSL_KEY_STORE_PASSWORD: changeit
 SSL_KEY_ALIAS: 1
 ```
 
-- `SERVER_PORT` définit le port d'écoute du serveur.
+- `SERVER_PORT` définit le port `HTTPS` interne d'écoute du serveur.
 - `SSL` active le `SSL`, le `HTTPS`.
 - `SSL_KEY_STORE_TYPE` Type du magasin, normalement `PKCS12`.
 - `SSL_KEY_STORE` Le magasin au format `.p12` que l'on a monté.

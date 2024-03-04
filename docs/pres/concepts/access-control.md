@@ -77,10 +77,6 @@ Les groupes possédés par l'utilisateur courant pourront être transmis aux mic
 
 En charge du microservice d'intégrer les groupes ainsi transmis dans les APIs exposés.
 
-## Organisations (multi-tenant)
-
-À venir
-
 ## Authentification à 2 facteurs
 
 L'authentification 2 facteurs est un mécanisme permettant d'augmenter la sécurité des comptes utilisateurs.

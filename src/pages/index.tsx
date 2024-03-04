@@ -15,7 +15,12 @@ function HomepageHeader() {
       <div className="container">
         <div className={clsx('row',styles.logoRow)}>
           <Logo role="img" className={styles.logo}/>
-          <Heading as="h1" className="hero__title">{siteConfig.title}</Heading>
+          <div className={styles.banner_title}>
+            <b className="hero__title">ARCHWAY</b>
+            <div>The Open source APP Gateway</div>
+            {/* <Heading as="h1" className="hero__title">ARCHWAY</Heading>
+            <Heading as="h4">The Open source APP Gateway</Heading> */}
+          </div>
         </div>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>

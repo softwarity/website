@@ -12,7 +12,7 @@ Souvent cette solution s'appelle `PORTAL`, `GATE` ou quelque chose comme cela. S
 
 En général une solution à façon permet de contrôler plus facilement un certain nombre de points comme la gestion des utilisateurs.
 
-## ARCHWAY
+## ARCHWAY: Une APP Gateway
 
 :::info
 Archway est une `Application gateway` une sorte de super `API Gateway`.
@@ -91,7 +91,7 @@ En revanche leur rôles s'arrete en géneral là. Si la plupart propose des méc
 De plus la partie autorisation se limite aux routes puisque ce sont les seuls objets connus de l'`API Gateway`.
 
 En géneral toutes les `API Gateway` propose de connecter celle ci à des services externes tel que `KeyCloack` ou autre `Okta` via `oauth2` pour prendre en charge l'authentification et les autorisations.
-Ceci est bien sûr une bonne solution en soit de déleguer cela à un service tier. Mais de notre point de vue cela complexifie grandement l'architecture de l'application, surtout pour des applications `on-premise` et encore plus pour des applications qui sont installé dans un rśeau privée (sans internet).
+Ceci est bien sûr une bonne solution en soit de déleguer cela à un service tier. Mais de notre point de vue cela complexifie grandement l'architecture de l'application, surtout pour des applications `on-premise` et encore plus pour des applications qui sont installé dans un réseau privée (sans internet).
 
 L'`APP Gateway` va donc proposer un certain nombre de services dont la partie authentification et autorisation, clé en main.
 

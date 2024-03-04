@@ -1,5 +1,5 @@
 ---
-title: Barre principal
+title: Gestion des rôles
 authors: fachache
 tags: []
 ---

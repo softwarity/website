@@ -30,16 +30,79 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Configuration',
-      items: ['doc/conf/files', 'doc/conf/https'],
+      collapsible: false,
+      collapsed: false,
+      items: ['doc/conf/files', 'doc/conf/https', 'doc/conf/clusterization'],
     },
     {
       type: 'category',
       label: 'Interface utilisateur',
-      items: ['doc/ui/top-bar', 'doc/ui/access-control', 'doc/ui/application', 'doc/ui/gateway'],
+      collapsible: false,
+      collapsed: false,
+      items: [
+        {
+          type: 'category',
+          label: 'Contrôle d\'accès',
+          collapsible: false,
+          collapsed: false,
+          items: [
+            'doc/ui/access-control/user-mng', 
+            'doc/ui/access-control/roles-mng', 
+            'doc/ui/access-control/view-connection-histo',
+            'doc/ui/access-control/policies-n-session',
+            'doc/ui/access-control/ldap-cfg',
+            'doc/ui/access-control/smtp-cfg',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Application',
+          collapsible: false,
+          collapsed: false,
+          items: [
+            'doc/ui/application/ui-options', 
+            'doc/ui/application/notification-push', 
+            'doc/ui/application/jwt-options', 
+            'doc/ui/application/dev-options', 
+            'doc/ui/application/locales', 
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Gateway',
+          collapsible: false,
+          collapsed: false,
+          items: [
+            {
+              type: 'category',
+              label: 'Routes',
+              collapsible: false,
+              collapsed: false,
+              items: [
+                'doc/ui/gateway/routes', 
+                'doc/ui/gateway/predicates', 
+                'doc/ui/gateway/filters', 
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Endpoints',
+              collapsible: false,
+              collapsed: false,
+              items: [
+                'doc/ui/gateway/endpoints-security', 
+              ],
+            },
+            'doc/ui/gateway/vault', 
+          ],
+        },
+      ]
     },
     {
       type: 'category',
       label: 'API',
+      collapsible: false,
+      collapsed: false,
       items: ['doc/api/current-user'],
     },
   ],

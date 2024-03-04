@@ -31,3 +31,8 @@
   justify-content: center;
   gap: 1rem;
 }
+.banner_title {
+  line-height: 1em;
+  padding-top: 1em;
+  text-align: right;
+}

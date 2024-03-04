@@ -25,3 +25,38 @@ tags: []
 | Support avec SLA | - | - | 1 ans | 2 ans |
 | Aide à la mise en oeuvre | - | - | - | ✔ |
 | Mise à jour | - | 1 an | 1 ans | 2 ans |
+
+
+| Fonctionnalités\Versions | Community | Business | Description |  
+|-|:-:|:-:|-|
+| Gestion des routes | ✔ | ✔ |  |
+| Gestion des utilisateurs | ✔ | ✔ |  |
+| Gestion des rôles | ✔ | ✔ |  |
+| Gestion des profils | ✔ | ✔ | | 
+| Gestion des groupes | ✔ | ✔ |  |
+| Support 2FA | ✔ | ✔ | |
+| Push notification | ✔ | ✔ | |
+| Gestion des plages de connexion | ✔ | ✔ | |
+| Gestion de la politique des mots de passe | ✔ | ✔ | |
+| Gestion du temps des sessions | ✔ | ✔ | |
+| Coffre fort | ✔ | ✔ | |
+| Transmission des droits aux tiers | ✔ | ✔ | |
+| Authentification aux tiers | ✔ | ✔ | |
+| Gestion et transmission de la langue utilisateur | ✔ | ✔ | |
+| Imports/Exports via l'interface | ✔ | ✔ | |
+
+| Gestion des plages de connexion par utilisateurs et timezones | ✔ | ✔ | |
+| Gestion du temps de session par utilisateurs et timezones | ✔ | ✔ | |
+| Customisation du logo et du nom de l'application hébergée | ✔ | ✔ | |
+
+| Manage security open-api endpoints | | ✔ | |
+| Manage audit open-api endpoints | | ✔ | |
+| Authentification JWT | | ✔ | |
+| OAuth2 Authentification | | ✔ | |
+
+| Imports (routes, utilisateurs, rôles, profiles, groupes, coffre fort ) via un volume | | ✔ | |
+| Support LDAP | | ✔ | |
+| Email features | | ✔ | |
+| Support clusterization | | ✔ | |
+
+| Support | Community | 1 ans |

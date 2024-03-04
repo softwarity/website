@@ -1,5 +1,5 @@
 ---
-title: Contrôle d'accés
+title: Prédicats
 authors: fachache
 tags: []
 ---
