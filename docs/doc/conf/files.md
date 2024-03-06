@@ -24,16 +24,17 @@ Dans les interfaces de gestion correspondantes, un bouton permet d'exporter indi
 
 ## Exports pris en charge
 
-- Les routes ✔
-- Les utilisateurs ✔
 - Les rôles ✔
-- Les profiles
-- Les groupes
+- Les groupes ✔
+- Les profiles ✔
+- Les utilisateurs ✔
+- Les routes ✔
+- Les locales ✔
 - Les élements du Vault ✔
-- Configuration Smtp
-- Configuration Ldap
-- Configuration des policies (passwords et heures d'accés)
+- Configuration des policies (passwords et heures d'accés) ✔
+- Configuration Ldap ✔
+- Configuration Smtp ✔
+- La securités des endpoints
+- Les options général
 
 ## Montage des fichiers dans le container.
-
-
