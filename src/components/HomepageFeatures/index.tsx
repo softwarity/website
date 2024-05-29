@@ -11,61 +11,61 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Clé en main',
+    title: 'Turnkey',
     Item: require('@site/static/img/turn-key.png').default,
     type: 'img',
     description: (
       <>
-        <b>Archway</b> a été conçu pour être facilement installé et
-        utilisé pour construire vos applications rapidement.
+        <b>Archway</b> was designed to be easily installed and
+        used to build your applications quickly.
       </>
     ),
   },
   {
-    title: 'Concentrez-vous sur vos microservices métiers',
+    title: 'Focus on your business microservices',
     Item: require('@site/static/img/computer_girl.png').default,
     type: 'img',
     description: (
       <>
-        <b>Archway</b> vous permet de vous concentrer sur la valeur ajoutée, <br></br><b>Archway</b> fera le reste.
+        <b>Archway</b> allows you to focus on the added value, <br></br><b>Archway</b> will do the rest.
       </>
     ),
   },
   {
-    title: 'Propulsé par Spring Cloud Gateway et Angular',
+    title: 'Powered by Spring Cloud Gateway and Angular',
     Item: require('@site/static/img/powered-by.png').default,
     // Item: require('@site/static/img/undraw_docusaurus_react.svg').default,
     type: 'img',
     description: (
       <>
-        Construit sur l'écosystème de Spring, notamment: Spring Boot, Spring security et le project Reactor.
-        <b>Archway</b> est construit sur les dernières versions de Spring Cloud Gateway et Angular.
+        Built on the Spring ecosystem, including: Spring Boot, Spring Security, and the Reactor project.
+        <b>Archway</b> is built on the latest versions of Spring Cloud Gateway and Angular.
       </>
     ),
   },
   {
-    title: 'Gestion avancée des routes',
+    title: 'Advanced Route Management',
     Item: require('@site/static/img/toll.png').default,
     // Item: require('@site/static/img/undraw_docusaurus_react.svg').default,
     type: 'img',
     description: (
       <>
-        <li>Gestion des routes, sécurisation, création des prédicats, des filtres via l'interface graphique.</li>
-        <li>Gestion des alternatives de routes.</li>
-        <li>Rechargement dynamique sans redémarrage.</li>
+        <li>Route management, securing, creation of predicates, filters through the graphical interface.</li>
+        <li>Management of route alternatives.</li>
+        <li>Dynamic reloading without restarting.</li>
       </>
     ),
   },
   {
-    title: 'Securisez vos applications sans effort',
+    title: 'Secure your applications effortlessly',
     Item: require('@site/static/img/gate-with-monks.png').default,
     // Item: require('@site/static/img/undraw_docusaurus_react.svg').default,
     type: 'img',
     description: (
       <>
-        <li>Gestion des droits RBAC. Prise en charge de LDAP.</li>
-        <li>Gestion des politiques d'accès des mots de passe, des jours ouvrables et des heures ouvrables.</li>
-        <li>Authentification 2 facteurs via TOTP.</li>
+        <li>RBAC rights management. LDAP support.</li>
+        <li>Management of access policies for passwords, business days, and business hours.</li>
+        <li>Two-factor authentication via TOTP.</li>
       </>
     ),
   },

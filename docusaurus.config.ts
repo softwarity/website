@@ -3,8 +3,8 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 const isDev = process.env.NODE_ENV === 'development';
 const config: Config = {
-  title: 'ARCHWAY',
-  tagline: 'Concentrez-vous sur ce qui compte',
+  title: 'SOFTWARITY',
+  tagline: 'Focus on what matters',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -25,40 +25,26 @@ const config: Config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'fr',
-    locales: ['fr', 'en'],
-    path: 'i18n',
-    localeConfigs: {
-      en: {
-        label: 'English',
-        direction: 'ltr',
-        htmlLang: 'en-US',
-        calendar: 'gregory',
-        path: 'en',
-      },
-      fr: {
-        label: 'Français',
-        direction: 'ltr',
-        htmlLang: 'fr-FR',
-        calendar: 'gregory',
-        path: 'fr',
-      },
-    },
+    defaultLocale: 'en',
+    locales: ['en'],
   },
   presets: [
     [
       'classic',
       {
         docs: {
+          lastVersion: 'current',
+          versions: {
+            current: {
+              label: 'Current',
+              path: '',
+            },
+          },
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/softwarity/website/tree/main',
           routeBasePath: '/'
         },
         blog: false,
-        // blog: {
-        //   showReadingTime: true,
-        //   editUrl: 'https://github.com/softwarity/website/tree/main',
-        // },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -66,6 +52,11 @@ const config: Config = {
     ],
   ],
   themeConfig: {
+    docs: {
+      sidebar: {
+        hideable: true,
+      },
+    },
     colorMode: {
       defaultMode: 'dark',
     },
@@ -79,20 +70,16 @@ const config: Config = {
       },
       items: [
         {
-          type: 'localeDropdown',
-          position: 'right',
-        },
-        {
           type: 'docSidebar',
           sidebarId: 'presSidebar',
           position: 'left',
-          label: 'Présentation',
+          label: 'Presentation',
         },
         {
           type: 'docSidebar',
           sidebarId: 'tutoSidebar',
           position: 'left',
-          label: 'Tutoriel',
+          label: 'Tutorial',
         },
         {
           type: 'docSidebar',
@@ -100,9 +87,14 @@ const config: Config = {
           position: 'left',
           label: 'Documentation',
         },
-        {to: '/showcase', label: 'Galerie'},
+        {to: '/showcase', label: 'Showcase'},
         // {to: '/licensing', label: 'Licenses'},
         {to: 'https://demo.softwarity.dev/login', label: 'Demo (guest/guest)'},
+        {
+          type: 'docsVersionDropdown',
+          position: 'right',
+          dropdownActiveClassDisabled: true,
+        },
         // isDev && {to: '/__docusaurus/debug', label: 'Debug'},
         // {
         //   type: 'docSidebar',
@@ -131,7 +123,7 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Présentation',
+              label: 'Presentation',
               to: '/pres/intro',
             },{
               label: 'Documentation',

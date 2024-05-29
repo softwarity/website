@@ -12,17 +12,41 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Concepts',
-      items: ['pres/concepts/gateway', 'pres/concepts/access-control', 'pres/concepts/locales', 'pres/concepts/users-infos'],
+      items: ['pres/concepts/gateway', 'pres/concepts/organization', 'pres/concepts/access-control', 'pres/concepts/locales', 'pres/concepts/users-infos'],
     },
     'pres/design'
   ],
   tutoSidebar: [
+    'tuto/contents',
     'tuto/install',
-    'tuto/route',
-    'tuto/route-security',
-    'tuto/route-predicate',
-    'tuto/route-filter',
-    'tuto/route-created',
+    'tuto/role',
+    {
+      type: 'category',
+      label: 'Route',
+      collapsible: false,
+      collapsed: false,
+      items: [
+        'tuto/route/route',
+        'tuto/route/route-frontend',
+        'tuto/route/route-security',
+        'tuto/route/route-authentication',
+        'tuto/route/route-predicate',
+        'tuto/route/route-filter',
+        'tuto/route/route-save-activate'
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Initialization',
+      collapsible: false,
+      collapsed: false,
+      items: [
+        'tuto/organization',
+        'tuto/role-group',
+        'tuto/group-user',
+        'tuto/token',
+      ]
+    },
     'tuto/route-test',
   ],
   docuSidebar: [
@@ -36,13 +60,13 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Interface utilisateur',
+      label: 'User Interface',
       collapsible: false,
       collapsed: false,
       items: [
         {
           type: 'category',
-          label: 'Contrôle d\'accès',
+          label: 'Access Control',
           collapsible: false,
           collapsed: false,
           items: [

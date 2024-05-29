@@ -6,10 +6,10 @@ tags: []
 ---
 
 :::note
-La facon la plus simple d'installer `ARCHWAY` est via `docker compose`.
+The simplest way to install `ARCHWAY` is via `docker compose`.
 :::
 
-## Fichier `docker-compose.yml`
+## `docker-compose.yml` File
 
 <details>
   <summary>`docker-compose.yml`</summary>
@@ -35,22 +35,22 @@ services:
 ```
 </details>
 
-## Démarrage du projet
+## Project Startup
 
 ```bash
 docker compose -f docker-compose.yml pull
 docker compose -f docker-compose.yml up -d
 ```
 
-### Lancement
+### Launch
 
 <a target="_blank" href="http://localhost:8080">http://localhost:8080</a>
 
 ## Setup
 
-Aprés avoir lancé l'application, `ARCHWAY` va s'auto-initialiser.
+After launching the application, `ARCHWAY` will self-initialize.
 
-Mais il nécessite de configurer l'utilisateur d'administrateur.
+But it requires configuring the administrator user.
 
 ![setup](img/setup.png)
 

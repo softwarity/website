@@ -1,15 +1,16 @@
 ---
-title: Paramêtres régionaux
+title: Regional Settings
 authors: fachache
 tags: []
 ---
 
-### Langue de l'application
+### Application Language
 
-Par défaut `ARCHWAY` définit le header `Accept-language` à `en`. Ce qui signifie anglais.
+By default, `ARCHWAY` sets the `Accept-language` header to `en`, which means English.
 
-`ARCHWAY` sauvegarde la langue choisie par l'utilisateur. Il expose aussi des APIs pour récuperer les langues disponibles dans votre application métier et définir celle choisie par l'utilisateur
+`ARCHWAY` saves the user's chosen language. It also exposes APIs to retrieve the available languages in your business application and to set the user's chosen language.
 
-### Timezone
+You can associate a language with a microservice serving a `UI`. If you activate the `UserBtn` filter, the user will be able to choose their preferred language through it.
 
-À venir
+This will be saved in the user's preferences and will be transmitted in the user information sent to the microservices.
+

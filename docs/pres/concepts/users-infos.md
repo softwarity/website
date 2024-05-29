@@ -1,15 +1,16 @@
 ---
-title: Informations utilisateurs
+title: User Information
 authors: fachache
 tags: []
 ---
 
-Les informations utilisateurs peuvent être transmisent aux microservices gérés par `ARCHWAY`.
+User information can be transmitted to microservices managed by `ARCHWAY`.
 
-Les informations transmises sont les suivantes
+The transmitted information is as follows:
 
- - username: le login de l'utilisateur
- - REMOTE_USER: le login de l'utilisateur
- - roles: la liste des rôles possédés par l'utilisateur
- - groups: La liste des groups
- - tenant: à venir. l'organisation courante de l'utilisateur
+ - username: the user's login
+ - REMOTE_USER: the user's ID
+ - organizationid: the current organization's ID of the user
+ - organizationname: the name of the user's current organization
+ - roles: the list of roles held by the user
+ 

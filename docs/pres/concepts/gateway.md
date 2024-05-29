@@ -6,89 +6,96 @@ tags: []
 
 ## Routes
 
-Les routes sont les éléments principals de la `Gateway`. Elles sont définis par un `URI` de destination, un ensemble de prédicats et un ensemble de filtres. Une route est prise en compte si le prédicat agrégé est vrai.
+Routes are the main elements of the `Gateway`. They are defined by a destination `URI`, a set of predicates, and a set of filters. A route is considered if the aggregated predicate is true.
 
 :::note
-L'`URI` est en général le `DNS` du microservice.
+The `URI` is generally the `DNS` of the microservice.
 :::
 
-## Prédicats
+## Predicates
 
-Les prédicats sont les opérations qui conditionnent la route. Si tous les prédicats sont evalué à vrai alors la route est empruntée.
+Predicates are the operations that condition the route. If all predicates are evaluated to true, then the route is taken.
 
-Ces prédicats peuvent être un entête `HTTP`, un cookie ou autre, mais c'est généralement un élement du chemin, le `path` de la requête.
+These predicates can be an `HTTP` header, a cookie, or something else, but it's generally an element of the path, the `path` of the request.
 
-## Filtres
+:::note
+The first route whose all predicates are verified is taken. It is therefore important to pay attention to the order of the routes.
+:::
 
-Les filtres permettent de modifier le flux.
+## Filters
 
-Nous pouvons distinguer 3 sortes de filtres.
+Filters allow modifying the flow.
 
-### Les filtres de requêtes
+We can distinguish 3 types of filters.
 
-Les filtres de requêtes modifient les élements constituant la requête avant de l'envoyer au microservice désigné par l'`URI`.
+### Request Filters
+
+Request filters modify the elements constituting the request before sending it to the microservice designated by the `URI`.
 
 :::info
-Par exemple le filtre de `stripPrefix=1` permet de supprimer du chemin le morceau qui aurait servit de prédicat.
+For example, the `stripPrefix=1` filter allows removing from the path the piece that would have served as a predicate.
 :::
 
-Ils permettent aussi de définir des entêtes `HTTP` spécifique ou autre modifications avant dêtre transmit au service cible.
+They also allow defining specific `HTTP` headers or other modifications before being transmitted to the target service.
 
-### Les filtres de réponses
+### Response Filters
 
-Les filtres de réponses permettent quand à eux de modifier la réponse retournée par le service cible.
-
-### Les autres filtres
-
-Les autres filtres, sont les filtres qui ne rentrent pas dans les 2 premières catégories.
-
-Ce sont par exemple les filtres de modifications de status.
-
-:::note
-La plupart du temps vous parametrerez un prédicat de type `path` et un filtre de requête `stripPrefix`.
-:::
-
-## Securité
-
-La sécurité est une composante importante de `ARCHWAY`.
-
-3 type d'exigences peuvent être définit
-
- - L'authentification est exigée
- - La nécessité de posseder un rôle (authentification implicite)
- - L'accés est réservé seulement à certain utilisateurs (authentification implicite)
-
-Ces exigences peuvent être définit à 2 niveaux
-
-### Sécurité de la `route`
-
-Les 3 exigences peuvent être définit au niveau de la route.
-
-Ceci peut être définit directement lors de la création de la route
-
-### Sécurité des `endpoints`
-
-Si la route expose un enpoint permettant de récuperer les specifications `open-api`, `ARCHWAY` permet de définir pour chaque endpoint les exigences de sécurité.
-
-## Cas pratique
-
-Par exemple, considérons le microservice `foo-service` qui ecoute sur le port 3000.
-
-La route pourrait être :
-
-- Prédicat: `path=/foo/**` définissant que toutes les requêtes commencant par `/foo/**` devront être redirigée vers `foo-service`
-Mais le service `foo-service` n'a pas dans sont chemin de contexte `foo`.
-On va donc utiliser le filtre de requête pour enlever cette partie superflue.
-- Filtre: `stripPrefix=1`
-Maintenant l'application web qui voudra requêter le service `foo-service` pourra juste requêter `/foo/...` 
+Response filters allow modifying the response returned by the target service.
 
 :::info
-Ainsi l'`API Gateway` routera le requête `/foo/v1/item` vers `http://foo-service:3000/vi/item`
+This kind of filter can add a button in the `UI`.
+:::
+
+### Other Filters
+
+Other filters are those that do not fit into the first two categories.
+
+These are for example the filters for status modifications.
+
+:::note
+Most of the time you will set up a `path` type predicate with a `stripPrefix` request filter or a `host` type predicate.
+:::
+
+## Security
+
+Security is an important component of `ARCHWAY`.
+
+2 types of requirements can be defined:
+
+ - Authentication is required
+ - The necessity to possess a role (implicit authentication)
+
+These requirements can be defined at 2 levels:
+
+### Route Security
+
+The 2 requirements can be defined at the route level.
+
+This can be defined directly during the creation of the route.
+
+### Endpoint Security
+
+If the route exposes an endpoint allowing to retrieve the `open-api` specifications, `ARCHWAY` allows defining for each endpoint the security requirements.
+
+## Practical Case
+
+For example, consider the `foo-service` microservice that listens on port 3000.
+
+The route could be:
+
+- Predicate: `path=/foo/**` defining that all requests starting with `/foo/**` will be redirected to `foo-service`
+But the `foo-service` does not have `foo` in its context path.
+So we will use the request filter to remove this unnecessary part.
+- Filter: `stripPrefix=1`
+Now the web application that wants to request the `foo-service` can just request `/foo/...`
+
+:::info
+Thus the `API Gateway` will route the request `/foo/v1/item` to `http://foo-service:3000/v1/item`
 :::
 
 :::note
-`ARCHWAY` pourra en plus exigé que l'initiateur de la reuquête soit authentifié. Et pourra transmettre les informations utilisateurs au service `foo-service`
- - via des entêtes `HTTP`
- - via un token `JWT`
+`ARCHWAY` can transmit user information to the `foo-service`
+ - via `HTTP` headers
+ - via a `JWT` token
 :::
 

@@ -24,7 +24,7 @@ function HomepageHeader() {
         </div>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
-          <Link className="button button--primary button--lg" to="/tuto/install">ARCHWAY Tutoriel - 5min ⏱️</Link>
+          <Link className="button button--primary button--lg" to="/tuto/install">ARCHWAY Quick Tutorial ⏱️</Link>
         </div>
       </div>
     </header>

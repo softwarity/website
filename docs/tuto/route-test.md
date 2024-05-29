@@ -68,6 +68,4 @@ Le `token` présent dans le résultat de `httpbin` n'est pas le même que celui 
 
 Celui ci est celui activé par le filtre que nous avons positionné précédement.
 
-![connection](img/create-route-filter-2.png)
-
 Vous pouvez copier ce `token` et le décoder sur la page de [jwt.io](https://jwt.io/#debugger-io)

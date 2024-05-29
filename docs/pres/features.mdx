@@ -1,115 +1,154 @@
 ---
 slug: features
-title: Fonctionnalités
+title: Features
 authors: fachache
 tags: []
 ---
 
-Nous allons ici essayer de presenter rapidement les fonctionnalités prise en charge par ARCHWAY. 
+Here we will try to quickly present the features supported by ARCHWAY.
 
 :::note
-Toutes ces fonctionnalitées sont accessibles via l'interface utilisateur
+All these features are accessible via the user interface.
 :::
 
-### Gestion des routes
+## Route Management
 
 :::info
-`ARCHWAY` est basé sur [Spring Cloud Gateway](https://spring.io/projects/spring-cloud-gateway/).
+`ARCHWAY` is based on [Spring Cloud Gateway](https://spring.io/projects/spring-cloud-gateway/).
 :::
 
-Aussi il propose la plupart des fonctionnalités fournit par ce dernier.
+It also offers most of the features provided by the latter.
 
-C'est le minimum...
+This is the minimum...
 
- - Création de routes
- - Définission des conditions de la route (Prédicats)
- - Modification des requêtes (Filtres)
- - Modification des reponses (Filtres)
+ - Creation of routes
+ - Definition of route conditions (Predicates)
+ - Modification of requests (Filters)
+ - Modification of responses (Filters)
 
-Il rajoute en plus un mécanisme simple pour sécuriser ces dernières.
+### Securing Routes
 
-Tout ceci peut se faire directement à partir de l'interface utilisateur ou à partir de fichiers de configuraitons.
+It also adds a mechanism to secure routes and endpoints.
 
-### Gestion des utilisateurs
+ - Is authentication required?
+ - Is a specific role required?
 
-`ARCHWAY` permet de gérer les utilisateurs des applications et services derriere l'`APP Gateway`.
+You can manage route security at two levels:
 
-Entre autre: 
+ - At the level of the route itself.
+ - At the level of the endpoints.
 
- - Informations utilisateur
- - Gestion de la politique des mots de passe (complexité, echecs, changement)
- - Blocage
- - Gestion des plages de dates et horaires autorisées.
- - Restriction sur la méthode de connexion (Form ou Jwt). Ainsi que les IPs ou DNS. 
+## User Management
 
-### Authentification et autorisation
+`ARCHWAY` manages several types of users:
 
-`ARCHWAY` propose clé en main un mécanisme d'authentification et autorisations de type `RBAC` (contrôle d'accès basé sur le rôle).
+ - DB user, created in the database
+ - OAuth2 user (Google, GitHub)
+ - LDAP user
 
-Ceci vous permettra d'utiliser facilement les rôles pour sécuriser vos routes, services et endpoints.
+These users will be the users of the microservices behind the `APP Gateway`.
 
-En quelques points: 
+### Supported Features
 
- - Gestion des utilisateurs en base
- - Prise en charge de LDAP
- - Changement de mot de passe à date
- - Répudiation des utilisateurs
- - Authentification à deux facteurs
- - Notion de profils et groupes
+ - User information
+ - Organizations
+ - MFA (Multi-Factor Authentication)
+ - Groups within the organization (and therefore roles)
+ - Password policy (complexity, failures, change)
+ - Blocking
+ - Allowed date and time ranges.
+ - Session time
 
-### Connexions
+### MFA (Multi-Factor Authentication)
 
-`ARCHWAY` permet de se connecter de 2 manières:
+`ARCHWAY` supports built-in `MFA` (Multi-Factor Authentication) for users.
 
- - Via le formulaire de connexion
- - Via un mécanisme `JWT`
+### Organizations (multitenant)
+
+`ARCHWAY` allows managing `tenants` (organizations).
+
+This feature allows you to compartmentalize data by organization.
+
+Each `tenant` can have its own configuration, its own users, its own groups, etc.
+
+If the user is in multiple organizations, they will have to choose which organization they want to connect to.
+
+### Authentication and Authorization
+
+`ARCHWAY` offers a ready-to-use authentication and authorization mechanism of type `RBAC` (role-based access control).
+
+This will allow you to easily use roles to secure your routes, services, and endpoints.
+
+In a few points:
+
+ - User management in the database
+ - Password change by date
+ - User repudiation
+ - MFA (Multi-Factor Authentication)
+ - Concept of groups (grouping of roles)
+
+:::note
+As previously mentioned, `ARCHWAY` manages `tenants`. Also, a user can have different roles in each organization.
+:::
 
 ### Locales
 
-Comme nous allons le voir plus loin `ARCHWAY` transmet dans les requête `HTTP` les informations de l'utilisateur connecté.
+You can configure locales via UI. `ARCHWAY` will transmit in the `HTTP` request the locale chosen by the user.
 
-`ARCHWAY` positionne aussi la langue préféré de l'utilisateur. 
+## Frontend
 
-il vous permet de gérer les langues et via des services `REST` d'interargir avec.
+`ARCHWAY` provides a modern interface for administering routes, users, organizations, etc.
 
-### Communication clients
+But not only that, `ARCHWAY` supports certain features like:
 
-#### Notifications Push
+ - Adding a user button
+ - Consent popup
 
-`ARCHWAY` permet de notifier l'intégralité des clients (si ceux ci ont activé la fonctionnalité) via le mécanisme de `Notification Push` [Push API](https://www.w3.org/TR/push-api/#introduction). Ce mécanisme ne fonctionne que si `ARCHWAY` et ses clients sont connectés à internet.
-
-:::info
-La fonctionnalité de `Notification Push` nécéssite 3 conditions
- - `ARCHWAY` et les clients doivent être connectés à internet.
- - `ARCHWAY` doit être exposé en `HTTPS`.
- - Et bien sûr la fonctionnalité doit être activée.
+:::note
+The user button allows you to:
+ - log in
+ - change language
+ - change organization
+ - enable/disable MFA
+ - update the password
+ - access the user profile
+ - log out
 :::
 
-#### Mails (Serveur `SMTP`)
+## Swagger-UI
 
-`ARCHWAY` propose aussi de configurer un serveur `SMTP`. Ce serveur permettra de modifier le `workflow` de gestion des utilisateurs.
+`ARCHWAY` provides a `Swagger-UI` to visualize the `OpenAPI` specifications.
 
-Par exemple si un serveur `SMTP` est configuré lors de la création d'un utilisateur. L'administrateur n'aura pas à saisir le mot de passe de cet utilisateur. Un mail d'activation conteant un mot de passe temporaire et aléatoire sera directement envoyé à l'utilisateur concerné.
+When you set the path of the `OpenAPI` specification in the route, the `Swagger-UI` will be available.
 
-### Coffre-fort
+## Connections
 
-`ARCHWAY` propose un coffre-fort comme le propose `AshiCorp Vault` mais en plus simple.
+`ARCHWAY` allows you to connect in several ways:
+
+ - Via the login form
+ - Via an `OAuth2` mechanism
+ - Via a `JWT` mechanism
+
+An administration interface allows you to view the connection history (especially the connection failures).
+
+## Vault
+
+`ARCHWAY` offers a vault similar to what `AshiCorp Vault` offers but simpler.
 
 :::info
-Le coffre-fort gére 2 types d'éléments
- - des secrets qui sont cryptés en base avec une clé symétrique.
- - et des valeurs en claires.
+The vault manages 2 types of items:
+ - secrets that are encrypted in the database with a symmetric key.
+ - and clear values.
 :::
 
-Vous pouvez ajouter une date de péremption aux éléments cryptés pour être informé de la nécessité de les mettre à jour. 
+You can add an expiration date to the encrypted items to be informed of the need to update them.
 
-De plus les élements chiffrés ne sont jamais affichés dans l'interface, ce qui permet d'éviter certaines déconvenues.
+Moreover, encrypted elements are never displayed in the interface, which helps avoid certain mishaps.
 
 export const VaultLogo = require('@site/static/img/vault.svg').default
 
 :::note
-Les éléments stockés dans le coffre-fort peuvent être utilisé dans differents endroits identifiés par cette icone :
+The items stored in the vault can be used in different places identified by this icon:
 <VaultLogo width="100px" height="100px"></VaultLogo>
 :::
-
 
