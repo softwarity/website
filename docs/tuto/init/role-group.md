@@ -22,9 +22,9 @@ Then select the `Groups` section.
 
 Finally, click on the `NEW GROUP` button. Create the group `TESTER`.
 
-![new-group](img/new-group.png)
+![new-group](../img/new-group.png)
 
 And finally check the checkbox between `HTTPBIN_TESTER` and `TESTER`.
 
-![role-in-group](img/role-in-group.png)
+![role-in-group](../img/role-in-group.png)
 

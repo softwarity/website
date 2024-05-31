@@ -41,13 +41,23 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       collapsed: false,
       items: [
-        'tuto/organization',
-        'tuto/role-group',
-        'tuto/group-user',
-        'tuto/token',
+        'tuto/init/organization',
+        'tuto/init/role-group',
+        'tuto/init/group-user',
+        'tuto/init/token'
       ]
     },
-    'tuto/route-test',
+    {
+      type: 'category',
+      label: 'Test the route',
+      collapsible: false,
+      collapsed: false,
+      items: [
+        'tuto/test/test-ui',
+        'tuto/test/test-headers',
+        'tuto/test/test-api'
+      ]
+    },
   ],
   docuSidebar: [
     'doc/start',

@@ -18,7 +18,7 @@ Click on the `Gateway` tab
 
 ![gateway-tab](../img/route/gateway-tab.png)
 
-Then click `NEW ROUTE`
+Then click on the fab button on the bottom right `+`
 
 ![create-route-open](../img/route/create-route-name-and-uri.png)
 

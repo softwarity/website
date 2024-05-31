@@ -11,5 +11,5 @@ Still on the organization's administration page, go to the `Members` section.
 
 Next, check the box between `TESTER` and the user.
 
-![group-to-user](img/group-to-user.png)
+![group-to-user](../img/group-to-user.png)
 

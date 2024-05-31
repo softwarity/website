@@ -9,20 +9,20 @@ To cover as many cases as possible, we will now create a connection token, which
 
 For this, we will use the token to authenticate and obtain a JWT ticket.
 
-Go to the `ME` page. Section `Security`, then `Tokens`.
+Go to the `ME` page. Section `Tokens`.
 
 Click on the `NEW TOKEN` button.
 
 Enter the description of the token, then click `CREATE`.
 
-![create-token](img/create-token.png)
+![create-token](../img/create-token.png)
 
 In return, a window opens and reveals the token.
 
-![token-created](img/token-created.png)
+![token-created](../img/token-created.png)
 
 Copy the token, it will be used later in the tutorial.
 
 :::note
-The token will not be accessible later, make sure to save it.
+The token will not be accessible later, make sure to copy and save it.
 :::
