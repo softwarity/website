@@ -9,22 +9,17 @@ At this stage we have:
 
  - a role: `HTTPBIN_TESTER`
  - a route: `httpbin` secured by this role.
- - an organization: `MAIN`
+ - an organization: `MAIN` (auto created on setup phase)
+ - 5 groups: (auto created on setup phase) named `GROUP_0` to `GROUP_4`
  - And we are inside it
 
-We now need to create a group with the role `HTTPBIN_TESTER`.
-
-And to be in this group.
+On va maintenant ajouter au `GROUP_0` le rôle `HTTPBIN_TESTER` et devenir membre de ce groupe.
 
 Go to the `MAIN` page which allows you to administer the organization.
 
 Then select the `Groups` section.
 
-Finally, click on the `NEW GROUP` button. Create the group `TESTER`.
-
-![new-group](../img/new-group.png)
-
-And finally check the checkbox between `HTTPBIN_TESTER` and `TESTER`.
+Check the checkbox between `HTTPBIN_TESTER` and `GROUP_0`.
 
 ![role-in-group](../img/role-in-group.png)
 

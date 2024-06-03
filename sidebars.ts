@@ -19,6 +19,7 @@ const sidebars: SidebarsConfig = {
   tutoSidebar: [
     'tuto/contents',
     'tuto/install',
+    'tuto/setup',
     'tuto/role',
     {
       type: 'category',
@@ -41,7 +42,6 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       collapsed: false,
       items: [
-        'tuto/init/organization',
         'tuto/init/role-group',
         'tuto/init/group-user',
         'tuto/init/token'

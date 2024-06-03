@@ -5,11 +5,11 @@ authors: fachache
 tags: []
 ---
 
-We now need to assign the `TESTER` group to the user.
+We now need to assign the `GROUP_0` group to the user.
 
 Still on the organization's administration page, go to the `Members` section.
 
-Next, check the box between `TESTER` and the user.
+Next, check the box between `GROUP_0` and the user.
 
 ![group-to-user](../img/group-to-user.png)
 
