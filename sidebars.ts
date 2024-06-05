@@ -66,19 +66,53 @@ const sidebars: SidebarsConfig = {
       label: 'Configuration',
       collapsible: false,
       collapsed: false,
-      items: ['doc/conf/files', 'doc/conf/https', 'doc/conf/clusterization'],
+      items: [
+        // 'doc/conf/files', 
+        'doc/conf/https', 
+        'doc/conf/clusterization'
+      ],
+    },
+    {
+      type: 'category',
+      label: 'User Profile',
+      collapsible: true,
+      collapsed: true,
+      items: [
+        'doc/user-profil/me', 
+        'doc/user-profil/user-infos',
+        'doc/user-profil/organizations',
+      ],
+    },
+    'doc/password-policy',
+    'doc/target-host',
+    {
+      type: 'category',
+      label: 'Gateway',
+      collapsible: true,
+      collapsed: true,
+      items: [
+        {
+          type: 'category',
+          label: 'Route',
+          collapsible: true,
+          collapsed: true,
+          items: [
+            'doc/gateway/route/alternative-target', 
+          ],
+        },
+      ],
     },
     {
       type: 'category',
       label: 'User Interface',
-      collapsible: false,
-      collapsed: false,
+      collapsible: true,
+      collapsed: true,
       items: [
         {
           type: 'category',
           label: 'Access Control',
-          collapsible: false,
-          collapsed: false,
+          collapsible: true,
+          collapsed: true,
           items: [
             'doc/ui/access-control/user-mng', 
             'doc/ui/access-control/roles-mng', 
@@ -91,8 +125,8 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Application',
-          collapsible: false,
-          collapsed: false,
+          collapsible: true,
+          collapsed: true,
           items: [
             'doc/ui/application/ui-options', 
             'doc/ui/application/notification-push', 
@@ -104,14 +138,14 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Gateway',
-          collapsible: false,
-          collapsed: false,
+          collapsible: true,
+          collapsed: true,
           items: [
             {
               type: 'category',
               label: 'Routes',
-              collapsible: false,
-              collapsed: false,
+              collapsible: true,
+              collapsed: true,
               items: [
                 'doc/ui/gateway/routes', 
                 'doc/ui/gateway/predicates', 
@@ -121,8 +155,8 @@ const sidebars: SidebarsConfig = {
             {
               type: 'category',
               label: 'Endpoints',
-              collapsible: false,
-              collapsed: false,
+              collapsible: true,
+              collapsed: true,
               items: [
                 'doc/ui/gateway/endpoints-security', 
               ],
@@ -131,13 +165,6 @@ const sidebars: SidebarsConfig = {
           ],
         },
       ]
-    },
-    {
-      type: 'category',
-      label: 'API',
-      collapsible: false,
-      collapsed: false,
-      items: ['doc/api/current-user'],
     },
   ],
 };

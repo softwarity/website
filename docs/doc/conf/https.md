@@ -5,38 +5,37 @@ authors: fachache
 tags: []
 ---
 
-Dans cette section nous allons voir comment configurer `ARCHWAY` pour que le serveur soit accessible en `HTTPS` et activer le `HTTP/2`.
+In this section, we will see how to configure `ARCHWAY` so that the server is accessible via `HTTPS` and to enable `HTTP/2`.
 
-`ARCHWAY` utilise un fichier `.p12` pour importer les certificats et clés nécessaires.
-
-:::note
-Un fichier `.p12` est un format de fichier binaire utilisé pour stocker le certificat du serveur, ainsi que toute la chaîne de certificats et la clé privée dans un seul fichier encrypté. Il est également connu sous le nom de fichier PKCS#12, qui est un standard pour le stockage de clés privées et de certificats.
-:::
-
-
-## Certificats autogénérés
-
-Nous allons commencer avec un fichier `.p12` autogénéré pour `localhost`.    
-Ce dernier pourra être utilisé localement sur le poste du développeur par exemple.
+`ARCHWAY` uses a `.p12` file to import the necessary certificates and keys.
 
 :::note
-La procédure est décrite pour une distribution `linux` `debian`.
+A `.p12` file is a binary file format used to store the server certificate, the entire certificate chain, and the private key in a single encrypted file. It is also known as a PKCS#12 file, which is a standard for storing private keys and certificates.
 :::
 
-### Autorités certifiantes
+## Self-Signed Certificates
 
-Nous allons générer une nouvelle `CA` locale qui émettra et signera  notre fichier `.p12`
+We will start with a self-generated `.p12` file for `localhost`.
+This can be used locally on the developer's workstation, for example.
 
-Mise à jour et installation des outils
+:::note
+The procedure is described for a `linux` `debian` distribution.
+:::
+
+### Certificate Authorities
+
+We will generate a new local `CA` that will issue and sign our `.p12` file.
+
+Updating and installing tools:
 
 ```bash
 $ sudo update-ca-certificates
 $ sudo apt install libnss3-tools mkcert
 ```
 
-Génération de la `CA` locale
+Generating the local `CA`:
 
-La commande suivate va créer et installer une CA localement dans vos differents navigateurs sur votre poste.
+The following command will create and install a CA locally in your various browsers on your workstation.
 
 ```bash
 $ sudo mkcert -install
@@ -48,9 +47,9 @@ The local CA is now installed in the Firefox and/or Chrome/Chromium trust store 
 The local CA is now installed in Java's trust store! 👍
 ```
 
-### Creation du `.p12`
+### Creation of the `.p12`
 
-Nous allons créer un magasin contenant les certificats et clé pour `localhost`.
+We will create a store containing the certificates and key for `localhost`.
 
 ```bash
 $ mkcert -p12-file server-keystore.p12 -pkcs12 localhost
@@ -67,40 +66,35 @@ The legacy PKCS#12 encryption password is the often hardcoded default "changeit"
 It will expire on 17 April 2026 🗓
 ```
 
-## Certificats fournis
+## Provided Certificates
 
 :::tip
-Si vous avez un fichier `.p12` pour votre domaine, passez à la section suivante.
+If you have a `.p12` file for your domain, skip to the next section.
 :::
 
-Si votre registraire vous fournit un certificat et une clé privée, utilisez la procédure suivante pour créer le fichier `.p12`.
-
-
-### Custom domaine
-
-Si votre registraire vous fournit pour votre domaine `mydomain.com` une clé privée et un certificat `ssl`. Vous pouvez générer un magasin au format `.p12`.
+If your registrar provides you with a private key and an SSL certificate for your domain `mydomain.com`, you can generate a `.p12` store.
 
 ```bash
 # mydomain.com_private_key.key
 # mydomain.com_ssl_certificate.cer
 ```
 
-À partir de ces fichiers générez le fichier `server-keystore.p12`.
+From these files, generate the `server-keystore.p12` file.
 
 ```bash
 openssl pkcs12 -export -out server-keystore.p12 -inkey mydomain.com_private_key.key -in mydomain.com_ssl_certificate.cer
 # create password
 ```
 
-### Afficher les infos
+### Displaying Information
 
 ```bash
 keytool -list -keystore server-keystore.p12 -storetype PKCS12 -v
 ```
 
-## Utilisation du `.p12`
+## Using the `.p12`
 
-Pour ajouter le certificat à `ARCHWAY` et ainsi activer, le `https` et le `http/2`, nous allons modifier le `docker-compose.yml` utilisé dans le tutoriel pour ajouter le montage du magasin `.p12` dans l'image `archway`.
+To add the certificate to `ARCHWAY` and thus enable `HTTPS` and `HTTP/2`, we will modify the `docker-compose.yml` used in the tutorial to mount the `.p12` store in the `archway` image.
 
 <details>
   <summary>`docker-compose.yml`</summary>
@@ -110,20 +104,16 @@ services:
   archway:
     image: ghcr.io/softwarity/archway:latest
     ports:
-      # highlight-next-line
       - 443:8443 # HTTPS
     volumes:
-      # highlight-next-line
       - ./server-keystore.p12:/server-keystore.p12:ro
     environment:
-      # highlight-start
       SERVER_PORT: 8443
       SSL: "true"
       SSL_KEY_STORE_TYPE: PKCS12
       SSL_KEY_STORE: server-keystore.p12
       SSL_KEY_STORE_PASSWORD: changeit
       SSL_KEY_ALIAS: 1
-      # highlight-end
       MONGODB_HOST: mongodb 
       MONGODB_DB_NAME: archway
       MONGODB_USER: admin
@@ -143,25 +133,25 @@ volumes:
 ```
 </details>
 
-### Explications
+### Explanations
 
 ```yml
 ./server-keystore.p12:/server-keystore.p12:ro
 ```
 
-La ligne `./server-keystore.p12:/server-keystore.p12:ro` définit que l'on va monter le magasin `.p12` à la racine du conteneur. On précise que c'est en lecture seule `ro`.
+The line `./server-keystore.p12:/server-keystore.p12:ro` specifies that we will mount the `.p12` store at the root of the container. It is specified as read-only `ro`.
 
-Dans notre cas, le fichier `server-keystore.p12` et le fichier `docker-compose.yml` doivent être au même niveau.
+In our case, the `server-keystore.p12` file and the `docker-compose.yml` file must be at the same level.
 
-Adaptez au besoin le mot de passe bien sûr.
+Adapt the password as needed, of course.
 
 ```yml
 - 443:8443 # HTTPS
 ```
 
-Ceci expose le port `8443` du conteneur sur le port local `443`.
+This exposes the container's `8443` port on the local `443` port.
 
-Si le port 443 n'est pas libre vous povez en utiliser un autre.
+If port 443 is not free, you can use another one.
 
 ```yml
 SERVER_PORT: 8443
@@ -172,29 +162,29 @@ SSL_KEY_STORE_PASSWORD: changeit
 SSL_KEY_ALIAS: 1
 ```
 
-- `SERVER_PORT` définit le port `HTTPS` interne d'écoute du serveur.
-- `SSL` active le `SSL`, le `HTTPS`.
-- `SSL_KEY_STORE_TYPE` Type du magasin, normalement `PKCS12`.
-- `SSL_KEY_STORE` Le magasin au format `.p12` que l'on a monté.
-- `SSL_KEY_STORE_PASSWORD` Le mot de passe de la clé privée.
-- `SSL_KEY_ALIAS` L'alias du certificat dans le magasin.
+- `SERVER_PORT` defines the internal `HTTPS` listening port of the server.
+- `SSL` activates `SSL`, `HTTPS`.
+- `SSL_KEY_STORE_TYPE` Type of the store, normally `PKCS12`.
+- `SSL_KEY_STORE` The store in `.p12` format that we mounted.
+- `SSL_KEY_STORE_PASSWORD` The private key password.
+- `SSL_KEY_ALIAS` The certificate alias in the store.
 
 :::tip
-Pour connaitre la liste des alias dans le magasin utiliser la commande:
+To know the list of aliases in the store use the command:
 ```bash
 keytool -list -keystore server-keystore.p12 -storetype PKCS12 -v
 ```
 :::
 
-### Démarrage du projet
+### Starting the Project
 
 ```bash
 docker compose -f docker-compose.yml pull
 docker compose -f docker-compose.yml up -d
 ```
 
-Connexion: [https://localhost:443/login](https://localhost:443/login)
+Connection: [https://localhost:443/login](https://localhost:443/login)
 
 :::note
-le lien précédent utilise `localhost`, il faut bien sur adater cela avec le `DNS` lié au certificat utilisé.
+The previous link uses `localhost`, you should adapt this with the `DNS` linked to the certificate used.
 :::
