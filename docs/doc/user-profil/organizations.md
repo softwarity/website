@@ -21,8 +21,6 @@ For manage organizations, if you are owner or admin, you have to be inside the o
 You can create an organization.
 Use the fab button on the bottom right of the screen.
 
-
-
 ### Member type
 
 You can see if you are owner, admin or just member of the organization.

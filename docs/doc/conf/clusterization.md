@@ -7,34 +7,34 @@ tags: []
 
 :::info
 # BUSINESS EDITION   
-Cette fonctionnalité n'est accessible que dans la version business
+This feature is only accessible in the business version.
 :::
 
-`ARCHWAY` supporte d'être clusterizé au sein d'un cluster style `SWARM` ou `KUBERNETES`.
+`ARCHWAY` supports being clustered within a `SWARM` or `KUBERNETES` style cluster.
 
-Pour fonctionner avec plusieurs instances, `ARCHWAY` a besoin que les instances se synchronisent entre elles.
+To operate with multiple instances, `ARCHWAY` needs the instances to synchronize with each other.
 
-Pour ce faire `ARCHWAY` utilise `RABBITMQ`.
+To do this, `ARCHWAY` uses `RABBITMQ`.
 
 ## RABBITMQ
 
-Il suffit donc de déployer un `RABBITMQ` comme décrit [ici](https://hub.docker.com/_/rabbitmq) et de donner les informations de connexion à `ARCHWAY` lors du déploiement de celui ci.
+So, you just need to deploy a `RABBITMQ` as described [here](https://hub.docker.com/_/rabbitmq) and provide the connection information to `ARCHWAY` during its deployment.
 
-Si les informations de connexion  sont présentes `ARCHWAY` créera une topologie de type `TOPIC` pour se synchroniser.
+If the connection information is present, `ARCHWAY` will create a `TOPIC` type topology to synchronize.
 
-Le nom des variables pour définir les informations de connexions sont les suivantes.
+The names of the variables to define the connection information are as follows.
 
 | name | optional | default value | description |
 |-|:-:|:-:|-|
-| RABBITMQ_HOST | | | Le `host` du rabbitmq, dans le cluster cela devrait être le nom du service `rabbitmq`. Si cette valeur est absente, le mode cluster est désactivé |
-| RABBITMQ_PORT | ✔ | 5672 | Le port d'écoute du rabbitmq, par default 5672|
-| RABBITMQ_USER | ✔ | guest | Le login par défaut de rabbitmq est `guest` |
-| RABBITMQ_PWD | ✔ | guest | Le mot de passe par défaut de rabbitmq est `guest` |
-| ARCHWAY_ID | ✔ | IP4: \d+\.\d+\.\d+\.(\<id\>\d+)| Cette valeur est calculé avec l'IP du container, plus précisément l'octet de poids faible. Vous pouvez utiliser un identifiant lié au numéro du container comme `.Task.Slot` dans `SWARM` ou `metadata.uid` dans `kubernetes` |
+| RABBITMQ_HOST | | | The `host` of the rabbitmq, in the cluster this should be the name of the `rabbitmq` service. If this value is absent, cluster mode is disabled |
+| RABBITMQ_PORT | ✔ | 5672 | The listening port of the rabbitmq, by default 5672|
+| RABBITMQ_USER | ✔ | guest | The default login of rabbitmq is `guest` |
+| RABBITMQ_PWD | ✔ | guest | The default password of rabbitmq is `guest` |
+| ARCHWAY_ID | ✔ | IP4: \d+\.\d+\.\d+\.(\<id\>\d+)| This value is calculated with the container's IP, specifically the least significant byte. You can use an identifier related to the container number like `.Task.Slot` in `SWARM` or `metadata.uid` in `kubernetes` |
 
 ### SWARM
 
-Voici un exemple de `docker-compose.yml` avec les informations de connexion du `RABBITMQ`.
+Here is an example of a `docker-compose.yml` with the `RABBITMQ` connection information.
 
 <details>
   <summary>docker-compose.yml</summary>
@@ -98,7 +98,7 @@ volumes:
 
 ### KUBERNETES 
 
-Voici un exemple de `deployment.yaml` avec les informations de connexion du `RABBITMQ`.
+Here is an example of `deployment.yaml` with the connection information of the `RABBITMQ`.
 
 <details>
   <summary>templates/deployment.yaml</summary>
@@ -152,11 +152,11 @@ spec:
 ```
 </details>
 
-## Réplicats
+## Replicas
 
-Activer le mode cluster ne suffit bien sûr pas, il convient de déployer `ARCHWAY` dans une architecture adaptée. Généralement un cluster constitué de plusieurs noeuds `node`.
+Activating cluster mode is of course not enough, it is appropriate to deploy `ARCHWAY` in a suitable architecture. Generally a cluster made up of several `node` nodes.
 
-Ensuite il faut aussi définir le nombre de réplicat désiré au sein du cluster. Ce que vous pouvez définir comme suit dans vos fichiers de déploiement.
+Then you also need to define the desired number of replicas within the cluster. Which you can define as follows in your deployment files.
 
 ### SWARM
 

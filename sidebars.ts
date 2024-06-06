@@ -64,7 +64,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Configuration',
-      collapsible: false,
+      collapsible: true,
       collapsed: false,
       items: [
         // 'doc/conf/files', 
@@ -76,96 +76,47 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'User Profile',
       collapsible: true,
-      collapsed: true,
+      collapsed: false,
       items: [
         'doc/user-profil/me', 
         'doc/user-profil/user-infos',
         'doc/user-profil/organizations',
+        'doc/user-profil/tokens',
+        'doc/user-profil/connections',
       ],
     },
+    {
+      type: 'category',
+      label: 'Organization',
+      collapsible: true,
+      collapsed: false,
+      items: [
+        'doc/organization/organization', 
+        'doc/organization/configuration', 
+        'doc/organization/members',
+        'doc/organization/groups',
+      ],
+    },
+    'doc/sessions',
     'doc/password-policy',
     'doc/target-host',
     {
       type: 'category',
       label: 'Gateway',
       collapsible: true,
-      collapsed: true,
+      collapsed: false,
       items: [
         {
           type: 'category',
           label: 'Route',
           collapsible: true,
-          collapsed: true,
+          collapsed: false,
           items: [
             'doc/gateway/route/alternative-target', 
           ],
         },
       ],
-    },
-    {
-      type: 'category',
-      label: 'User Interface',
-      collapsible: true,
-      collapsed: true,
-      items: [
-        {
-          type: 'category',
-          label: 'Access Control',
-          collapsible: true,
-          collapsed: true,
-          items: [
-            'doc/ui/access-control/user-mng', 
-            'doc/ui/access-control/roles-mng', 
-            'doc/ui/access-control/view-connection-histo',
-            'doc/ui/access-control/policies-n-session',
-            'doc/ui/access-control/ldap-cfg',
-            'doc/ui/access-control/smtp-cfg',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Application',
-          collapsible: true,
-          collapsed: true,
-          items: [
-            'doc/ui/application/ui-options', 
-            'doc/ui/application/notification-push', 
-            'doc/ui/application/jwt-options', 
-            'doc/ui/application/dev-options', 
-            'doc/ui/application/locales', 
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Gateway',
-          collapsible: true,
-          collapsed: true,
-          items: [
-            {
-              type: 'category',
-              label: 'Routes',
-              collapsible: true,
-              collapsed: true,
-              items: [
-                'doc/ui/gateway/routes', 
-                'doc/ui/gateway/predicates', 
-                'doc/ui/gateway/filters', 
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Endpoints',
-              collapsible: true,
-              collapsed: true,
-              items: [
-                'doc/ui/gateway/endpoints-security', 
-              ],
-            },
-            'doc/ui/gateway/vault', 
-          ],
-        },
-      ]
-    },
+    }
   ],
 };
 

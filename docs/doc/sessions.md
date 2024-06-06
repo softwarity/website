@@ -1,5 +1,6 @@
 ---
-title: Prédicats
+slug: sessions
+title: Sessions
 authors: fachache
 tags: []
 ---
