@@ -1,25 +1,25 @@
 ---
 slug: start
-title: Premiers pas
+title: Getting Started
 authors: fachache
 tags: []
 ---
 
 ## Installation
 
-Installer `ARCHWAY` est trés facile, l'application `ARCHWAY` nécessite 2 images `docker`. L'image de `ARCHWAY` et l'image de `mongodb`.
+Installing `ARCHWAY` is very easy, the `ARCHWAY` application requires 2 `docker` images. The `ARCHWAY` image and the `mongodb` image.
 
 :::tip
-Notez que la base de données `mongodb` peut être clusterisée (dans swarm ou k8s), mais surtout peut être utilisée par vos microservices pour stocker vos documents. 
+Note that the `mongodb` database can be clustered (in swarm or k8s), but more importantly, it can be used by your microservices to store your documents.
 :::
 
 :::warning
-En revanche il est déconseillé d'accéder et surtout de modifier les documents de `ARCHWAY` via vos services internes. C'est ce que l'on appelle la gouvernance de la donnée. 
+However, it is not recommended to access and especially modify `ARCHWAY` documents via your internal services. This is what we call data governance.
 :::
 
-La meilleur facon d'installer `ARCHWAY` est de le déployer au sein d'un cluster. Mais vous pouvez bien sur l'installer comme simple container `docker` via `docker-compose`.
+The best way to install `ARCHWAY` is to deploy it within a cluster. But you can also install it as a simple `docker` container via `docker-compose`.
 
-### Fichier `docker-compose.yml`
+### `docker-compose.yml` File
 
 <details>
   <summary>`docker-compose.yml`</summary>
@@ -58,13 +58,13 @@ networks:
 </details>
 
 :::tip
-Notez que le volume mongodb_data n'a pas de destination précisée et sera donc géré par docker. 
-Voir [volume](https://docs.docker.com/storage/volumes/) pour plus de détails.
+Note that the mongodb_data volume does not have a specific destination specified and will therefore be managed by docker.
+See [volume](https://docs.docker.com/storage/volumes/) for more details.
 :::
 
 :::tip
-Notez qu'en absence de certificat, le HTTPs n'est pas actif par defaut.   
-[Voir Activer le `HTTPS`](conf/https)
+Note that in the absence of a certificate, HTTPS is not active by default.
+[See Enable `HTTPS`](conf/https)
 :::
 
 ### `docker-compose`
@@ -76,7 +76,7 @@ docker compose -f docker-compose.yml up -d
 
 ### `cluster` `Swarm`
 
-Dans cette exemple, nous allons lancer `ARCHWAY` dans une stack `myapp`.
+In this example, we will launch `ARCHWAY` in a stack named `myapp`.
 
 ```bash
 docker stack deploy -c docker-compose.yml myapp
@@ -84,13 +84,22 @@ docker stack deploy -c docker-compose.yml myapp
 
 ### `cluster` `Kubernetes`
 
-Pour déployer `ARCHWAY` dans un cluster kube, il convient d'utiliser d'autre fichiers de déploiement. 
+To deploy `ARCHWAY` in a kube cluster, it is necessary to use other deployment files.
 
-
+:::danger
+TODO
+:::
 
 ## Configuration
 
-### Par l'interface
+### Through the interface
 
-### Par fichiers json
+:::danger
+TODO
+:::
 
+### Through JSON files
+
+:::danger
+TODO
+:::

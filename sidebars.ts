@@ -12,7 +12,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Concepts',
-      items: ['pres/concepts/gateway', 'pres/concepts/organization', 'pres/concepts/access-control', 'pres/concepts/locales', 'pres/concepts/users-infos'],
+      items: ['pres/concepts/gateway', 'pres/concepts/organization', 'pres/concepts/user-member', 'pres/concepts/access-control', 'pres/concepts/locales', 'pres/concepts/users-infos'],
     },
     'pres/design'
   ],
@@ -94,9 +94,11 @@ const sidebars: SidebarsConfig = {
         'doc/organization/organization', 
         'doc/organization/configuration', 
         'doc/organization/members',
-        'doc/organization/groups',
+        'doc/organization/groups-roles',
       ],
     },
+    'doc/business-access',
+    'doc/member-infos',
     'doc/sessions',
     'doc/password-policy',
     'doc/target-host',
