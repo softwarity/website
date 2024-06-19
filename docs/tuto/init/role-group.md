@@ -13,7 +13,7 @@ At this stage we have:
  - 5 groups: (auto created on setup phase) named `GROUP_0` to `GROUP_4`
  - And we are inside it
 
-On va maintenant ajouter au `GROUP_0` le rôle `HTTPBIN_TESTER` et devenir membre de ce groupe.
+Now we will add the HTTPBIN_TESTER role to GROUP_0 and become a member of this group.
 
 Go to the `MAIN` page which allows you to administer the organization.
 
