@@ -9,18 +9,18 @@ import Groups from './img/groups.png'
 
 <img src={Groups} alt="Groups"/>
 
-Un groupe est une collection de rôles.
+A group is a collection of roles.
 
-Vous devez donc associer les rôles aux groupes
+You must therefore associate roles with groups.
 
 :::note
-Les groupes sont gérés au niveau de l'organisation.
+Groups are managed at the organization level.
 
-Aussi les groupes créer au sein d'une organisation ne sont pas visibles et n'impacteront pas les autres organisations
+Also, groups created within an organization are not visible and will not impact other organizations.
 :::
 
 :::note
-Les rôles ne sont pas gérer au niveau de l'organisation, mais au niveau de l'application.
+Roles are not managed at the organization level, but at the application level.
 :::
 
 ## Group management
@@ -29,7 +29,7 @@ You can create and modify groups as needed. Managing groups allows you to contro
 
 ## Create Group
 
-To create a new group, use the button on bottom right.
+To create a new group, use the button on the bottom right.
 
 ## Modify Group
 

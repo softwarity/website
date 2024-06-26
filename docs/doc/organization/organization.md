@@ -7,6 +7,11 @@ tags: []
 
 This screen allows you to manage the organization if you are the owner or an administrator.
 
+import Members from './img/members.png'
+
+<img src={Members} alt="Members"/>
+
+
 Here you can:
 
  - Manage group management mode
