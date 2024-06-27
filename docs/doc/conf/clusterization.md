@@ -43,7 +43,7 @@ Here is an example of a `docker-compose.yml` with the `RABBITMQ` connection info
 version: '3.8'
 services:
   archway:
-    image: ghcr.io/softwarity/archway:latest
+    image: ghcr.io/softwarity/archway-be:latest
     # highlight-start
     deploy:      
       replicas: 3 # here define instance number
@@ -122,7 +122,7 @@ spec:
     spec:
       containers:
         - name: archway-container
-          image: ghcr.io/softwarity/archway
+          image: ghcr.io/softwarity/archway-be
           ports:
             - containerPort: 8080
           env:
@@ -163,7 +163,7 @@ Then you also need to define the desired number of replicas within the cluster. 
 ```yml title="docker-compose.yml" showLineNumbers
   ...
   archway:
-    image: ghcr.io/softwarity/archway:latest
+    image: ghcr.io/softwarity/archway-be:latest
     # highlight-start
     deploy:      
       replicas: 3 # here define instance number

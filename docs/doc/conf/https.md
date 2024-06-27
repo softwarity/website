@@ -102,7 +102,7 @@ To add the certificate to `ARCHWAY` and thus enable `HTTPS` and `HTTP/2`, we wil
 version: '3.8'
 services:
   archway:
-    image: ghcr.io/softwarity/archway:latest
+    image: ghcr.io/softwarity/archway-ce:latest
     ports:
       - 443:8443 # HTTPS
     volumes:

@@ -43,7 +43,7 @@ Voici un exemple de `docker-compose.yml` avec les informations de connexion du `
 version: '3.8'
 services:
   archway:
-    image: ghcr.io/softwarity/archway:latest
+    image: ghcr.io/softwarity/archway-be:latest
     # highlight-start
     deploy:      
       replicas: 3 # here define instance number
@@ -122,7 +122,7 @@ spec:
     spec:
       containers:
         - name: archway-container
-          image: ghcr.io/softwarity/archway
+          image: ghcr.io/softwarity/archway-be
           ports:
             - containerPort: 8080
           env:
@@ -163,7 +163,7 @@ Ensuite il faut aussi définir le nombre de réplicat désiré au sein du cluste
 ```yml title="docker-compose.yml" showLineNumbers
   ...
   archway:
-    image: ghcr.io/softwarity/archway:latest
+    image: ghcr.io/softwarity/archway-be:latest
     # highlight-start
     deploy:      
       replicas: 3 # here define instance number
