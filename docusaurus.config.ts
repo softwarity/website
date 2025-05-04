@@ -95,6 +95,17 @@ const config: Config = {
         // {to: '/licensing', label: 'Licenses'},
         {to: 'https://demo.softwarity.dev/login', label: 'Demo (guest/guest)'},
         {
+          type: 'dropdown',
+          label: 'Other products',
+          position: 'right',
+          items: [
+            {
+              label: 'XLIFF Translator',
+              href: 'https://xliff.softwarity.io',
+            },
+          ],
+        },
+        {
           type: 'docsVersionDropdown',
           position: 'right',
           dropdownActiveClassDisabled: true,
